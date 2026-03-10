@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAIZA - Productos Artesanales</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">RAIZA</div>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="cart-icon" onclick="toggleCartVisibility()">
+                🛒
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <h1>Bienvenido a RAIZA</h1>
+        <p>Productos Artesanales</p>
+        <button class="btn" onclick="scrollToSection('productos')">Ver Catálogo</button>
+    </section>
+
+    <!-- Productos -->
+    <section class="container products-section" id="productos">
+        <h2 class="section-title">Nuestros Productos</h2>
+        
+        <div class="filters">
+            <button class="filter-btn active" onclick="filterProducts('todos')">Todos</button>
+            <button class="filter-btn" onclick="filterProducts('libros')">📚 Libros</button>
+            <button class="filter-btn" onclick="filterProducts('jabones')">🧼 Jabones</button>
+            <button class="filter-btn" onclick="filterProducts('accesorios')">🎀 Accesorios</button>
+        </div>
+
+        <div class="products-grid" id="productsGrid">
+            <!-- Los productos se cargarán aquí -->
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section class="container" id="contacto" style="padding: 4rem 0;">
+        <h2 class="section-title">Contáctanos</h2>
+        <div style="max-width: 600px; margin: 0 auto;">
+            <form onsubmit="handleContactForm(event)" style="display: flex; flex-direction: column; gap: 1rem;">
+                <input type="text" placeholder="Tu nombre" required style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px;">
+                <input type="email" placeholder="Tu correo electrónico" required style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px;">
+                <textarea placeholder="Tu mensaje" rows="5" required style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+                <button type="submit" class="btn">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sobre RAIZA</h3>
+                <p>Somos una tienda especializada en productos artesanales de calidad, elaborados con amor y dedicación.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Información</h3>
+                <ul>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Envíos y Devoluciones</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>📧 Email: info@raiza.com</li>
+                    <li>📱 Teléfono: +34 900 123 456</li>
+                    <li>📍 Dirección: Madrid, España</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 RAIZA. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Carrito Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <button class="close-btn" onclick="closeCart()">✕</button>
+            <h2 class="cart-title">Tu Carrito</h2>
+            <div id="cartItems"></div>
+            <div id="cartEmpty" class="cart-empty">Tu carrito está vacío</div>
+            <div id="cartTotalDiv" style="display: none;">
+                <div class="cart-total">Total: $<span id="cartTotal">0</span></div>
+                <div class="cart-actions">
+                    <button class="btn btn-secondary" onclick="continueShopping()">Continuar Comprando</button>
+                    <button class="btn" onclick="checkout()">Proceder al Pago</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="database.js"></script>
+    <script src="utils.js"></script>
+    <script src="cart.js"></script>
+    <script src="ui.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
