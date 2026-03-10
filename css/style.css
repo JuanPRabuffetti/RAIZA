@@ -21,13 +21,18 @@ header {
     top: 0;
     z-index: 1000;
     box-shadow: 0 8px 32px rgba(139, 111, 71, 0.2);
+    transition: transform 0.28s ease;
+}
+
+header.header-hidden {
+    transform: translateY(-100%);
 }
 
 nav {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding: 0 2rem;
 }
@@ -180,7 +185,7 @@ nav a:hover::after {
     position: absolute;
     top: -8px;
     right: -8px;
-    background: #D4A574;
+    background: #d92c2c;
     color: white;
     border-radius: 50%;
     width: 20px;
@@ -190,6 +195,10 @@ nav a:hover::after {
     justify-content: center;
     font-size: 0.8rem;
     font-weight: bold;
+    opacity: 0;
+    transform: scale(0.6);
+    visibility: hidden;
+    transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s ease;
 }
 
 /* Sección Hero - Slideshow */
@@ -973,6 +982,10 @@ footer::before {
 
     .logo {
         font-size: 1.4rem;
+    }
+
+    nav ul {
+        display: none;
     }
 
     .cart-icon {

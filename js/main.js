@@ -6,6 +6,7 @@ const WHATSAPP_PHONE = '59812345678';
 
 let slideIndex = 1;
 let slideTimer;
+let lastScrollY = window.scrollY;
 
 /**
  * Cambia al slide anterior o siguiente
@@ -74,6 +75,29 @@ document.addEventListener('DOMContentLoaded', function() {
     // Iniciar slideshow
     showSlides(slideIndex);
     startAutoSlide();
+});
+
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (!header) return;
+
+    const currentScrollY = window.scrollY;
+    const scrollDelta = currentScrollY - lastScrollY;
+
+    // Ignora micro movimientos para evitar parpadeo del header.
+    if (Math.abs(scrollDelta) < 8) {
+        return;
+    }
+
+    if (currentScrollY <= 0) {
+        header.classList.remove('header-hidden');
+    } else if (scrollDelta > 0 && currentScrollY > 80) {
+        header.classList.add('header-hidden');
+    } else {
+        header.classList.remove('header-hidden');
+    }
+
+    lastScrollY = currentScrollY;
 });
 
 // ==================== EVENTOS DE CARRITO ====================
