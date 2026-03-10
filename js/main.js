@@ -134,7 +134,7 @@ function checkout() {
 
     // Crear resumen de la compra
     const cartSummary = cart.getItems()
-        .map(item => `- ${item.emoji} ${item.name} x${item.quantity} = $${formatPrice(calculateItemTotal(item.price, item.quantity))}`)
+        .map(item => `- ${item.name} x${item.quantity} = $${formatPrice(calculateItemTotal(item.price, item.quantity))}`)
         .join('\n');
 
     const message = `

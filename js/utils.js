@@ -40,13 +40,14 @@ function roundToTwo(value) {
 /**
  * Obtiene la etiqueta de categoría según el código
  * @param {string} category - Código de categoría
- * @returns {string} Etiqueta con emoji
+ * @returns {string} Etiqueta legible de categoría
  */
 function getCategoryLabel(category) {
     const labels = {
-        'libros': '📚 Libros',
-        'jabones': '🧼 Jabones',
-        'accesorios': '🎀 Accesorios'
+        'libros': 'Libros',
+        'jabones': 'Jabones',
+        'accesorios': 'Accesorios',
+        'juegos': 'Juegos'
     };
     return labels[category] || category;
 }

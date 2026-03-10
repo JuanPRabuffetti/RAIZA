@@ -56,7 +56,7 @@ function updateCartUI() {
             itemDiv.className = 'cart-item';
             itemDiv.innerHTML = `
                 <div class="cart-item-info">
-                    <div class="cart-item-name">${item.emoji} ${item.name}</div>
+                    <div class="cart-item-name">${item.name}</div>
                     <div class="cart-item-price">$${formatPrice(item.price)} x ${item.quantity} = $${formatPrice(itemTotal)}</div>
                 </div>
                 <div class="quantity-control">

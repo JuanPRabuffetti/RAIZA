@@ -75,23 +75,12 @@ nav a:hover::after {
 .cart-icon {
     position: relative;
     cursor: pointer;
-    font-size: 1.5rem;
-    transition: transform 0.3s ease;
-    animation: floatIcon 3s ease-in-out infinite;
+    font-size: 1.3rem;
+    transition: color 0.3s ease;
 }
 
 .cart-icon:hover {
-    transform: scale(1.2);
-    animation: none;
-}
-
-@keyframes floatIcon {
-    0%, 100% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-8px);
-    }
+    color: #9B7C5C;
 }
 
 .cart-count {
@@ -373,43 +362,24 @@ nav a:hover::after {
 .btn {
     display: inline-block;
     padding: 0.8rem 2rem;
-    background: linear-gradient(135deg, #8B6F47 0%, #9B7653 100%);
+    background: #8B6F47;
     color: white;
     text-decoration: none;
-    border-radius: 25px;
+    border-radius: 4px;
     cursor: pointer;
     border: none;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease;
     font-size: 1rem;
     font-weight: 600;
-    box-shadow: 0 4px 15px rgba(139, 111, 71, 0.3);
-    position: relative;
-    overflow: hidden;
-}
-
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.5s ease;
-}
-
-.btn:hover::before {
-    left: 100%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .btn:hover {
-    background: linear-gradient(135deg, #7A5D3A 0%, #8B6C3D 100%);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(139, 111, 71, 0.4);
+    background: #9B7C5C;
 }
 
 .btn:active {
-    transform: translateY(-1px);
+    transform: translateY(1px);
 }
 
 .btn-secondary {
@@ -465,28 +435,24 @@ nav a:hover::after {
 
 .filter-btn {
     padding: 0.5rem 1rem;
-    border: 2px solid #C99A6E;
-    background: white;
+    border: 1px solid #8B6F47;
+    background: #ffffff;
     color: #8B6F47;
-    border-radius: 0;
+    border-radius: 4px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease;
     font-weight: 600;
+    font-size: 0.9rem;
 }
 
 .filter-btn.active {
-    background: linear-gradient(135deg, #8B6F47 0%, #C99A6E 100%);
-    color: white;
-    box-shadow: 0 4px 15px rgba(139, 111, 71, 0.3);
-    transform: scale(1.05);
+    background: #8B6F47;
+    color: #ffffff;
 }
 
 .filter-btn:hover {
-    background: linear-gradient(135deg, #A0826D 0%, #D4A574 100%);
-    color: white;
-    border-color: #8B6F47;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(139, 111, 71, 0.2);
+    background: #9B7C5C;
+    color: #ffffff;
 }
 
 .products-grid {
@@ -611,26 +577,24 @@ nav a:hover::after {
 }
 
 .add-to-cart-btn {
-    padding: 0.8rem 1.5rem;
-    background: linear-gradient(135deg, #C99A6E 0%, #D4A574 100%);
+    padding: 0.6rem 1.2rem;
+    background: #8B6F47;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease;
     font-weight: 600;
     align-self: center;
+    font-size: 0.9rem;
 }
 
 .add-to-cart-btn:hover {
-    background: linear-gradient(135deg, #8B6F47 0%, #9B7653 100%);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(139, 111, 71, 0.3);
+    background: #9B7C5C;
 }
 
 .add-to-cart-btn:active {
-    transform: scale(0.98);
+    transform: translateY(1px);
 }
 
 /* Carrito Modal */
