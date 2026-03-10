@@ -1,11 +1,77 @@
 // main.js - Coordinador principal y manejadores de eventos
 
+// ==================== SLIDESHOW ====================
+
+let slideIndex = 1;
+let slideTimer;
+
+/**
+ * Cambia al slide anterior o siguiente
+ * @param {number} n - Número de slides a cambiar (-1 anterior, 1 siguiente)
+ */
+function changeSlide(n) {
+    clearTimeout(slideTimer);
+    showSlides(slideIndex += n);
+    startAutoSlide();
+}
+
+/**
+ * Va a un slide específico
+ * @param {number} n - Número del slide
+ */
+function currentSlide(n) {
+    clearTimeout(slideTimer);
+    showSlides(slideIndex = n);
+    startAutoSlide();
+}
+
+/**
+ * Muestra el slide actual y actualiza los puntos indicadores
+ * @param {number} n - Índice del slide
+ */
+function showSlides(n) {
+    const slides = document.getElementsByClassName("slide");
+    const dots = document.getElementsByClassName("dot");
+    
+    if (n > slides.length) {
+        slideIndex = 1;
+    }
+    if (n < 1) {
+        slideIndex = slides.length;
+    }
+    
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+}
+
+/**
+ * Inicia la rotación automática del slideshow
+ */
+function startAutoSlide() {
+    slideTimer = setTimeout(function() {
+        slideIndex++;
+        showSlides(slideIndex);
+        startAutoSlide();
+    }, 5000); // Cambiar slide cada 5 segundos
+}
+
 // ==================== INICIALIZACIÓN ====================
 
 document.addEventListener('DOMContentLoaded', function() {
     initializeStyles();
     renderProducts(products);
     updateCartUI();
+    
+    // Iniciar slideshow
+    showSlides(slideIndex);
+    startAutoSlide();
 });
 
 // ==================== EVENTOS DE CARRITO ====================

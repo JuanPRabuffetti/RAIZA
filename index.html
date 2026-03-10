@@ -17,17 +17,46 @@
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
             <div class="cart-icon" onclick="toggleCartVisibility()">
-                🛒
+                Carrito
                 <span class="cart-count" id="cartCount">0</span>
             </div>
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section - Slideshow -->
     <section class="hero" id="inicio">
-        <h1>Bienvenido a RAIZA</h1>
-        <p>Registra tu Embarazo y Recuerdos del Bebé</p>
-        <button class="btn" onclick="scrollToSection('productos')">Ver Catálogo</button>
+        <div class="slideshow-container">
+            <div class="slide fade">
+                <div class="slide-content">
+                    <h1>Bienvenido a RAIZA</h1>
+                    <p>Registra tu Embarazo y Recuerdos del Bebé</p>
+                    <button class="btn" onclick="scrollToSection('productos')">Ver Catálogo</button>
+                </div>
+            </div>
+            <div class="slide fade">
+                <div class="slide-content">
+                    <h1>Productos Premium</h1>
+                    <p>Cuidados especiales para los momentos más importantes</p>
+                    <button class="btn" onclick="scrollToSection('productos')">Explorar</button>
+                </div>
+            </div>
+            <div class="slide fade">
+                <div class="slide-content">
+                    <h1>Hechos con Amor</h1>
+                    <p>Artesanía de calidad para tu familia</p>
+                    <button class="btn" onclick="scrollToSection('productos')">Descubre Más</button>
+                </div>
+            </div>
+            
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        </div>
+        
+        <div class="dots-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
     </section>
 
     <!-- Productos -->
@@ -44,7 +73,7 @@
     </section>
 
     <!-- Sección de Contacto -->
-    <section class="container" id="contacto" style="padding: 3rem 0;">
+    <section class="container" id="contacto" style="padding: 3rem 2rem;">
         <h2 class="section-title">Contáctanos</h2>
         <div style="max-width: 500px; margin: 0 auto; display: flex; justify-content: center;">
             <form class="contact-form" onsubmit="handleContactForm(event)" style="display: flex; flex-direction: column; gap: 1rem; width: 100%;">

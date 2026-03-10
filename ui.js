@@ -16,12 +16,9 @@ function renderProducts(productsToShow) {
             <div class="product-info">
                 <div class="product-category">${getCategoryLabel(product.category)}</div>
                 <div class="product-name">${product.name}</div>
-                <div class="rating">★★★★★</div>
                 <div class="product-description">${product.description}</div>
-                <div class="product-footer">
-                    <span class="price">$${formatPrice(product.price)}</span>
-                    <button class="add-to-cart-btn" onclick="handleAddToCart(${product.id})">Agregar</button>
-                </div>
+                <div class="price">$${formatPrice(product.price)}</div>
+                <button class="add-to-cart-btn" onclick="handleAddToCart(${product.id})">Agregar al Carrito</button>
             </div>
         `;
         grid.appendChild(card);
