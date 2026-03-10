@@ -1,105 +1,58 @@
 // Base de datos de productos
 const products = [
-    // Libros
     {
         id: 1,
-        name: "Cuentos para Dormir",
+        name: "Libro para Embarazo",
         category: "libros",
-        price: 12.99,
-        description: "Historias suaves para ayudar a conciliar el sueño",
-        emoji: "📚"
+        price: 1190,
+        description: "Tamaño A5 con 60 páginas para registrar todo tu embarazo: recuerdos, ecografías, pensamientos y controles. Viene en bolsa de tela 🫶🏼",
+        emoji: "🤰",
+        available: true
     },
     {
         id: 2,
-        name: "Libros Táctiles Coloridos",
+        name: "Tarjetas del Primer Año",
         category: "libros",
-        price: 18.50,
-        description: "Libros interactivos con texturas para estimular",
-        emoji: "📖"
+        price: 790,
+        description: "Set de 12 tarjetas ilustradas para los primeros 12 meses y momentos importantes de cada etapa. Van en bolsa de tela 📸",
+        emoji: "📅",
+        available: true
     },
     {
         id: 3,
-        name: "Abecedario Ilustrado",
+        name: "Libro de Recuerdos del Bebé",
         category: "libros",
-        price: 14.99,
-        description: "Aprende el abecedario con ilustraciones bonitas",
-        emoji: "🔤"
+        price: 1490,
+        description: "Impreso en papel ecológico con 70 páginas para guardar recuerdos y fotos del primer año. Incluye tarjeta personalizada. Se entrega en bolsa de lienzo ✨",
+        emoji: "👶",
+        available: true
     },
     {
         id: 4,
-        name: "Mi Primer Diccionario",
+        name: "Libro de Recuerdos Personalizado",
         category: "libros",
-        price: 16.99,
-        description: "Palabras básicas con imágenes para bebés",
-        emoji: "📚"
+        price: 1590,
+        description: "Mismo producto que el Libro de Recuerdos pero con carátula personalizada con el nombre del bebé. Papel ecológico, 70 páginas en bolsa de lienzo 💕",
+        emoji: "👶",
+        available: true
     },
-    
-    // Jabones y productos de cuidado
     {
         id: 5,
-        name: "Jabón Suave de Lavanda",
-        category: "jabones",
-        price: 8.99,
-        description: "Jabón natural y suave para la piel sensible",
-        emoji: "🧼"
+        name: "MEMO Bajo del Mar",
+        category: "juegos",
+        price: 490,
+        description: "Juego de memoria con ilustraciones de animales marinos y sus palabras. Plastificado y resistente al agua. Perfecto para estimulación temprana 🌊🐠",
+        emoji: "🎮",
+        available: true
     },
     {
         id: 6,
-        name: "Jabón de Manzanilla",
-        category: "jabones",
-        price: 8.50,
-        description: "Antiséptico natural sin químicos fuertes",
-        emoji: "🧴"
-    },
-    {
-        id: 7,
-        name: "Set de 3 Jabones Aromáticos",
-        category: "jabones",
-        price: 22.99,
-        description: "Lavanda, Rosa y Manzanilla en set especial",
-        emoji: "🎁"
-    },
-    {
-        id: 8,
-        name: "Gel de Baño Suave",
-        category: "jabones",
-        price: 10.50,
-        description: "Gel de baño delicado para bebés recién nacidos",
-        emoji: "🧴"
-    },
-    
-    // Accesorios
-    {
-        id: 9,
-        name: "Canasta Organizadora",
+        name: "Almohadillas para Sellos y Manos",
         category: "accesorios",
-        price: 19.99,
-        description: "Canasta tejida para organizar artículos del bebé",
-        emoji: "🧺"
-    },
-    {
-        id: 10,
-        name: "Móvil para Cuna",
-        category: "accesorios",
-        price: 24.99,
-        description: "Móvil musical que estimula la visión del bebé",
-        emoji: "🎪"
-    },
-    {
-        id: 11,
-        name: "Mantita de Algodón Orgánico",
-        category: "accesorios",
-        price: 21.99,
-        description: "Mantita suave y cálida para el recién nacido",
-        emoji: "🛏️"
-    },
-    {
-        id: 12,
-        name: "Almohada de Espuma Viscoelástica",
-        category: "accesorios",
-        price: 27.99,
-        description: "Almohada ergonómica para bebés 0-12 meses",
-        emoji: "☁️"
+        price: 390,
+        description: "Almohadillas para sellos de manos y pies de bebés. Perfectas para crear recuerdos especiales 🖐️👣",
+        emoji: "🎨",
+        available: false
     }
 ];
 
@@ -120,6 +73,10 @@ function renderProducts(productsToShow) {
     productsToShow.forEach(product => {
         const card = document.createElement('div');
         card.className = 'product-card';
+        const buttonHTML = product.available 
+            ? `<button class="add-to-cart-btn" onclick="addToCart(${product.id})">Agregar</button>`
+            : `<button class="add-to-cart-btn" style="opacity: 0.6; cursor: not-allowed;" disabled>Próximamente</button>`;
+        
         card.innerHTML = `
             <div class="product-image">${product.emoji}</div>
             <div class="product-info">
@@ -128,8 +85,8 @@ function renderProducts(productsToShow) {
                 <div class="rating">★★★★★</div>
                 <div class="product-description">${product.description}</div>
                 <div class="product-footer">
-                    <span class="price">$${product.price}</span>
-                    <button class="add-to-cart-btn" onclick="addToCart(${product.id})">Agregar</button>
+                    <span class="price">$${product.price.toLocaleString('es-AR')}</span>
+                    ${buttonHTML}
                 </div>
             </div>
         `;
@@ -141,8 +98,8 @@ function renderProducts(productsToShow) {
 function getCategoryLabel(category) {
     const labels = {
         'libros': '📚 Libros',
-        'jabones': '🧼 Jabones',
-        'accesorios': '🎀 Accesorios'
+        'juegos': '🎮 Juegos',
+        'accesorios': '🎨 Accesorios'
     };
     return labels[category] || category;
 }
@@ -209,7 +166,7 @@ function updateCartUI() {
             itemDiv.innerHTML = `
                 <div class="cart-item-info">
                     <div class="cart-item-name">${item.emoji} ${item.name}</div>
-                    <div class="cart-item-price">$${item.price} x ${item.quantity} = $${itemTotal.toFixed(2)}</div>
+                    <div class="cart-item-price">$${item.price.toLocaleString('es-AR')} x ${item.quantity} = $${itemTotal.toLocaleString('es-AR')}</div>
                 </div>
                 <div class="quantity-control">
                     <button class="quantity-btn" onclick="decreaseQuantity(${item.id})">-</button>
@@ -222,7 +179,7 @@ function updateCartUI() {
         });
 
         const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        document.getElementById('cartTotal').textContent = total.toFixed(2);
+        document.getElementById('cartTotal').textContent = total.toLocaleString('es-AR');
     }
 }
 
@@ -280,9 +237,9 @@ function checkout() {
 ¡Gracias por tu compra!
 
 Productos:
-${cart.map(item => `- ${item.emoji} ${item.name} x${item.quantity} = $${(item.price * item.quantity).toFixed(2)}`).join('\n')}
+${cart.map(item => `- ${item.emoji} ${item.name} x${item.quantity} = $${(item.price * item.quantity).toLocaleString('es-AR')}`).join('\n')}
 
-Total: $${total.toFixed(2)}
+Total: $${total.toLocaleString('es-AR')}
 
 Por favor, completa el pago en nuestro sistema de pago seguro.
 Este es un sitio de demostración.
