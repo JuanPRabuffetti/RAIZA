@@ -7,6 +7,7 @@ const products = [
         price: 1190,
         description: "Tamaño A5 con 60 páginas para registrar todo tu embarazo: recuerdos, ecografías, pensamientos y controles. Viene en bolsa de tela 🫶🏼",
         emoji: "🤰",
+        image: "pictures/libro_seguimiento_embarazo.jpeg",
         available: true
     },
     {
@@ -16,6 +17,7 @@ const products = [
         price: 790,
         description: "Set de 12 tarjetas ilustradas para los primeros 12 meses y momentos importantes de cada etapa. Van en bolsa de tela 📸",
         emoji: "📅",
+        image: "pictures/tarjetas1.jpeg",
         available: true
     },
     {
@@ -25,6 +27,7 @@ const products = [
         price: 1490,
         description: "Impreso en papel ecológico con 70 páginas para guardar recuerdos y fotos del primer año. Incluye tarjeta personalizada. Se entrega en bolsa de lienzo ✨",
         emoji: "👶",
+        image: "pictures/libro_de_recuerdos_sin_personalizar.jpeg",
         available: true
     },
     {
@@ -34,6 +37,7 @@ const products = [
         price: 1590,
         description: "Mismo producto que el Libro de Recuerdos pero con carátula personalizada con el nombre del bebé. Papel ecológico, 70 páginas en bolsa de lienzo 💕",
         emoji: "👶",
+        image: "pictures/libro_de_recuerdos_personalizado.jpeg",
         available: true
     },
     {
@@ -43,6 +47,7 @@ const products = [
         price: 490,
         description: "Juego de memoria con ilustraciones de animales marinos y sus palabras. Plastificado y resistente al agua. Perfecto para estimulación temprana 🌊🐠",
         emoji: "🎮",
+        image: "pictures/memo1.jpeg",
         available: true
     },
     {

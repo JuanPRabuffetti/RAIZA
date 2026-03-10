@@ -133,12 +133,35 @@ nav a:hover::after {
     position: absolute;
     top: 0;
     left: 0;
-    background: linear-gradient(135deg, #8B6F47 0%, #A0826D 25%, #9B7653 50%, #C99A6E 75%, #8B6F47 100%);
     animation: slideInFade 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .slide.fade {
     animation: slideInFade 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slide-1 {
+    background: linear-gradient(135deg, rgba(139, 111, 71, 0.9) 0%, rgba(160, 130, 109, 0.8) 25%, rgba(155, 118, 83, 0.9) 50%, rgba(201, 154, 110, 0.8) 75%, rgba(139, 111, 71, 0.9) 100%),
+                url('../pictures/libro_seguimiento_embarazo.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+}
+
+.slide-2 {
+    background: linear-gradient(135deg, rgba(139, 111, 71, 0.9) 0%, rgba(160, 130, 109, 0.8) 25%, rgba(155, 118, 83, 0.9) 50%, rgba(201, 154, 110, 0.8) 75%, rgba(139, 111, 71, 0.9) 100%),
+                url('../pictures/tarjetas1.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+}
+
+.slide-3 {
+    background: linear-gradient(135deg, rgba(139, 111, 71, 0.9) 0%, rgba(160, 130, 109, 0.8) 25%, rgba(155, 118, 83, 0.9) 50%, rgba(201, 154, 110, 0.8) 75%, rgba(139, 111, 71, 0.9) 100%),
+                url('../pictures/libro_de_recuerdos_personalizado.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
 }
 
 @keyframes slideInFade {
@@ -215,41 +238,51 @@ nav a:hover::after {
     cursor: pointer;
     position: absolute;
     top: 50%;
-    width: 50px;
-    height: 50px;
-    margin-top: -25px;
+    width: 60px;
+    height: 60px;
+    margin-top: -30px;
     color: white;
     font-weight: bold;
-    font-size: 28px;
     transition: all 0.3s ease;
     user-select: none;
-    background: linear-gradient(135deg, rgba(139, 111, 71, 0.8) 0%, rgba(160, 130, 109, 0.8) 100%);
+    background: transparent;
     z-index: 10;
     border: none;
     padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    position: relative;
+    backdrop-filter: none;
+    box-shadow: none;
     overflow: hidden;
     outline: none;
+    border-radius: 50%;
 }
 
-.prev::before, .next::before {
+.prev::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.5s ease;
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-right: 16px solid white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-70%, -50%);
 }
 
-.prev:hover::before, .next:hover::before {
-    left: 100%;
+.next::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 16px solid white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-30%, -50%);
 }
 
 .next {
@@ -262,10 +295,24 @@ nav a:hover::after {
     border-radius: 10% 50% 50% 10%;
 }
 
-.prev:hover, .next:hover {
-    background: linear-gradient(135deg, #8B6F47 0%, #A0826D 100%);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+.prev:hover::before {
+    border-right-color: rgba(255, 255, 255, 0.8);
+    transform: translate(-70%, -50%) scale(1.1);
+}
+
+.next:hover::before {
+    border-left-color: rgba(255, 255, 255, 0.8);
+    transform: translate(-30%, -50%) scale(1.1);
+}
+
+.prev:hover::before {
+    border-right-color: rgba(255, 255, 255, 0.8);
+    transform: translate(-70%, -50%) scale(1.1);
+}
+
+.next:hover::before {
+    border-left-color: rgba(255, 255, 255, 0.8);
+    transform: translate(-30%, -50%) scale(1.1);
 }
 
 .dots-container {
@@ -421,7 +468,7 @@ nav a:hover::after {
     border: 2px solid #C99A6E;
     background: white;
     color: #8B6F47;
-    border-radius: 20px;
+    border-radius: 0;
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: 600;
@@ -483,14 +530,24 @@ nav a:hover::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 4rem;
-    color: white;
     transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
     border-radius: 8px;
     margin-bottom: 1rem;
     box-shadow: 0 4px 12px rgba(139, 111, 71, 0.15);
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.4s ease;
+}
+
+.product-image:hover img {
+    transform: scale(1.05);
 }
 
 .product-image::before {

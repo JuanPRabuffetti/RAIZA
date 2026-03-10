@@ -12,7 +12,9 @@ function renderProducts(productsToShow) {
         const card = document.createElement('div');
         card.className = 'product-card';
         card.innerHTML = `
-            <div class="product-image">${product.emoji}</div>
+            <div class="product-image">
+                <img src="${product.image}" alt="${product.name}" loading="lazy">
+            </div>
             <div class="product-info">
                 <div class="product-category">${getCategoryLabel(product.category)}</div>
                 <div class="product-name">${product.name}</div>

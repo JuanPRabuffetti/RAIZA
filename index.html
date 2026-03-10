@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RAIZA - Productos Artesanales</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Header -->
@@ -26,21 +26,21 @@
     <!-- Hero Section - Slideshow -->
     <section class="hero" id="inicio">
         <div class="slideshow-container">
-            <div class="slide fade">
+            <div class="slide fade slide-1">
                 <div class="slide-content">
                     <h1>Bienvenido a RAIZA</h1>
                     <p>Registra tu Embarazo y Recuerdos del Bebé</p>
                     <button class="btn" onclick="scrollToSection('productos')">Ver Catálogo</button>
                 </div>
             </div>
-            <div class="slide fade">
+            <div class="slide fade slide-2">
                 <div class="slide-content">
                     <h1>Productos Premium</h1>
                     <p>Cuidados especiales para los momentos más importantes</p>
                     <button class="btn" onclick="scrollToSection('productos')">Explorar</button>
                 </div>
             </div>
-            <div class="slide fade">
+            <div class="slide fade slide-3">
                 <div class="slide-content">
                     <h1>Hechos con Amor</h1>
                     <p>Artesanía de calidad para tu familia</p>
@@ -48,8 +48,8 @@
                 </div>
             </div>
             
-            <button class="prev" onclick="changeSlide(-1)">❮</button>
-            <button class="next" onclick="changeSlide(1)">❯</button>
+            <button type="button" class="prev" onclick="changeSlide(-1)"><span></span></button>
+            <button type="button" class="next" onclick="changeSlide(1)"><span></span></button>
         </div>
         
         <div class="dots-container">
@@ -140,10 +140,10 @@
     </div>
 
     <!-- Scripts -->
-    <script src="database.js"></script>
-    <script src="utils.js"></script>
-    <script src="cart.js"></script>
-    <script src="ui.js"></script>
-    <script src="main.js"></script>
+    <script src="js/database.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
