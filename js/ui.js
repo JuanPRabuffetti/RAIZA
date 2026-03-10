@@ -11,10 +11,22 @@ function renderProducts(productsToShow) {
     productsToShow.forEach(product => {
         const card = document.createElement('div');
         card.className = 'product-card';
+
+        const hasGallery = Array.isArray(product.gallery) && product.gallery.length > 1;
+        const imageMarkup = hasGallery
+            ? `
+                <div class="product-image product-image-double">
+                    ${product.gallery.slice(0, 2).map((img, index) => `<img src="${img}" alt="${product.name} ${index + 1}" loading="lazy" class="product-image-split">`).join('')}
+                </div>
+            `
+            : `
+                <div class="product-image">
+                    <img src="${product.image}" alt="${product.name}" loading="lazy">
+                </div>
+            `;
+
         card.innerHTML = `
-            <div class="product-image">
-                <img src="${product.image}" alt="${product.name}" loading="lazy">
-            </div>
+            ${imageMarkup}
             <div class="product-info">
                 <div class="product-category">${getCategoryLabel(product.category)}</div>
                 <div class="product-name">${product.name}</div>
@@ -71,11 +83,11 @@ function updateCartUI() {
                     <div class="cart-item-price">$${formatPrice(item.price)} x ${item.quantity} = $${formatPrice(itemTotal)}</div>
                 </div>
                 <div class="quantity-control">
-                    <button class="quantity-btn" onclick="handleDecreaseQuantity(${item.id})">-</button>
+                    <button class="quantity-btn" onclick="handleDecreaseQuantity(${item.id}, event)">-</button>
                     <span>${item.quantity}</span>
-                    <button class="quantity-btn" onclick="handleIncreaseQuantity(${item.id})">+</button>
+                    <button class="quantity-btn" onclick="handleIncreaseQuantity(${item.id}, event)">+</button>
                 </div>
-                <button class="remove-btn" onclick="handleRemoveFromCart(${item.id})">Eliminar</button>
+                <button class="remove-btn" onclick="handleRemoveFromCart(${item.id}, event)">Eliminar</button>
             `;
             cartItemsDiv.appendChild(itemDiv);
         });

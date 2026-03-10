@@ -145,8 +145,13 @@ function handleAddToCart(productId) {
 /**
  * Maneja la eliminación de un producto del carrito
  * @param {number} productId - ID del producto
+ * @param {Event} [event] - Evento click opcional
  */
-function handleRemoveFromCart(productId) {
+function handleRemoveFromCart(productId, event) {
+    if (event) {
+        event.stopPropagation();
+    }
+
     cart.removeItem(productId);
     updateCartUI();
     showNotification('Producto eliminado del carrito', 'info');
@@ -155,8 +160,13 @@ function handleRemoveFromCart(productId) {
 /**
  * Maneja el aumento de cantidad de un producto
  * @param {number} productId - ID del producto
+ * @param {Event} [event] - Evento click opcional
  */
-function handleIncreaseQuantity(productId) {
+function handleIncreaseQuantity(productId, event) {
+    if (event) {
+        event.stopPropagation();
+    }
+
     cart.increaseQuantity(productId);
     updateCartUI();
 }
@@ -164,8 +174,13 @@ function handleIncreaseQuantity(productId) {
 /**
  * Maneja la disminución de cantidad de un producto
  * @param {number} productId - ID del producto
+ * @param {Event} [event] - Evento click opcional
  */
-function handleDecreaseQuantity(productId) {
+function handleDecreaseQuantity(productId, event) {
+    if (event) {
+        event.stopPropagation();
+    }
+
     cart.decreaseQuantity(productId);
     updateCartUI();
 }

@@ -724,6 +724,36 @@ nav a:hover::after {
     transform: scale(1.05);
 }
 
+.product-image-double {
+    display: flex;
+    gap: 0;
+    align-items: stretch;
+    justify-content: stretch;
+    padding: 0;
+    overflow: hidden;
+}
+
+.product-image-double .product-image-split {
+    width: 50%;
+    flex: 1 1 50%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+    transition: transform 0.3s ease;
+}
+
+.product-image-double .product-image-split:first-child {
+    border-radius: 8px 0 0 8px;
+}
+
+.product-image-double .product-image-split:last-child {
+    border-radius: 0 8px 8px 0;
+}
+
+.product-image-double:hover .product-image-split {
+    transform: scale(1.03);
+}
+
 .product-info {
     padding: 0;
     flex: 1;

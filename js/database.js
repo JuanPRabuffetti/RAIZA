@@ -43,6 +43,7 @@ const products = [
         price: 490,
         description: "Juego de memoria con ilustraciones de animales marinos. Cartas plastificadas y resistentes al agua, ideal para estimulación temprana.",
         image: "pictures/memo1.jpeg",
+        gallery: ["pictures/memo1.jpeg", "pictures/memo2.jpeg"],
         available: true
     },
     {
