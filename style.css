@@ -692,18 +692,214 @@ footer::before {
     z-index: 1;
 }
 
-/* Responsive */
+/* Responsive - Mobile First */
 @media (max-width: 768px) {
+    /* Header y Navegación */
+    nav {
+        padding: 0 1rem;
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
     nav ul {
-        gap: 1rem;
+        gap: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    nav a {
+        padding: 0.5rem;
+    }
+
+    .cart-icon {
+        font-size: 1.3rem;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 3rem 1rem;
+        text-align: center;
     }
 
     .hero h1 {
         font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Container */
+    .container {
+        padding: 0 1rem;
+    }
+
+    /* Section Title */
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    /* Filters */
+    .filters {
+        gap: 0.5rem;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .filter-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    /* Products Grid */
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .product-card {
+        max-width: 100%;
+    }
+
+    .product-card:hover {
+        transform: translateY(-8px) scale(1);
+    }
+
+    .product-image {
+        height: 200px;
+        font-size: 3rem;
+    }
+
+    .product-info {
+        padding: 1rem;
+    }
+
+    .product-name {
+        font-size: 1.1rem;
+    }
+
+    .product-description {
+        font-size: 0.9rem;
+    }
+
+    .price {
+        font-size: 1.3rem;
+    }
+
+    /* Contact Form */
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 16px !important; /* Previene zoom en iOS */
+    }
+
+    /* Footer */
+    footer {
+        padding: 2rem 1rem;
+        margin-top: 2rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 0.8rem;
+    }
+
+    /* Cart Modal */
+    .cart-content {
+        width: 95%;
+        padding: 1.5rem;
+        max-height: 90%;
+    }
+
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .cart-item-info {
+        width: 100%;
+    }
+
+    .quantity-control {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    /* Buttons */
+    .btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.95rem;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .cart-actions {
+        flex-direction: column;
+    }
+
+    .cart-actions .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Tamaños extra pequeños */
+    nav {
+        padding: 0 0.8rem;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
+
+    nav ul {
+        gap: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    nav a {
+        padding: 0.3rem;
+    }
+
+    .hero {
+        padding: 2rem 1rem;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
     }
 
     .products-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+
+    .product-image {
+        height: 180px;
+        font-size: 2.5rem;
+    }
+
+    .filter-btn {
+        padding: 0.35rem 0.7rem;
+        font-size: 0.8rem;
     }
 }
 
@@ -712,4 +908,37 @@ footer::before {
     margin-bottom: 0.5rem;
     font-size: 1.1rem;
     text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Mejoras adicionales para centrado */
+.products-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filters {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    max-width: 100%;
+}
+
+/* Centrado de secciones */
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
