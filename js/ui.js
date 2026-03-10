@@ -32,9 +32,20 @@ function renderProducts(productsToShow) {
  */
 function updateCartUI() {
     const summary = cart.getSummary();
+    const shouldShowBadge = summary.itemCount > 0;
     
-    // Actualizar contador en el header
-    document.getElementById('cartCount').textContent = summary.itemCount;
+    // Actualizar contadores visibles (si existen)
+    const headerCount = document.getElementById('cartCount');
+    const mobileCount = document.getElementById('mobileCartCount');
+
+    if (headerCount) {
+        headerCount.textContent = summary.itemCount;
+        headerCount.classList.toggle('is-visible', shouldShowBadge);
+    }
+    if (mobileCount) {
+        mobileCount.textContent = summary.itemCount;
+        mobileCount.classList.toggle('is-visible', shouldShowBadge);
+    }
 
     const cartItemsDiv = document.getElementById('cartItems');
     const cartEmptyDiv = document.getElementById('cartEmpty');

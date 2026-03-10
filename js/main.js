@@ -1,5 +1,7 @@
 // main.js - Coordinador principal y manejadores de eventos
 
+const WHATSAPP_PHONE = '59812345678';
+
 // ==================== SLIDESHOW ====================
 
 let slideIndex = 1;
@@ -132,30 +134,27 @@ function checkout() {
         return;
     }
 
-    // Crear resumen de la compra
     const cartSummary = cart.getItems()
         .map(item => `- ${item.name} x${item.quantity} = $${formatPrice(calculateItemTotal(item.price, item.quantity))}`)
         .join('\n');
 
-    const message = `
-¡Gracias por tu compra!
+    const message = [
+        'Hola RAIZA, quiero confirmar este pedido:',
+        '',
+        cartSummary,
+        '',
+        `Total: $${formatPrice(summary.total)}`,
+        '',
+        'Nombre:'
+    ].join('\n');
 
-Productos:
-${cartSummary}
+    const whatsappUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
 
-Total: $${formatPrice(summary.total)}
-
-Por favor, completa el pago en nuestro sistema de pago seguro.
-Este es un sitio de demostración.
-    `;
-
-    alert(message);
-
-    // Limpiar carrito después del "pago"
     cart.clear();
     updateCartUI();
     closeCart();
-    showNotification('¡Pedido completado con éxito!', 'success');
+    showNotification('Te redirigimos a WhatsApp para finalizar el pedido', 'success');
 }
 
 // ==================== EVENTOS DE FILTROS ====================
@@ -191,7 +190,9 @@ document.addEventListener('click', function(event) {
     if (modal && modal.classList.contains('active')) {
         if (!cartContent.contains(event.target) && 
             event.target.id !== 'cartCount' && 
-            !event.target.closest('.cart-icon')) {
+            event.target.id !== 'mobileCartCount' &&
+            !event.target.closest('.cart-icon') &&
+            !event.target.closest('.mobile-cart-btn')) {
             closeCart();
         }
     }
