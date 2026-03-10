@@ -32,11 +32,20 @@ function renderProducts(productsToShow) {
                 <div class="product-name">${product.name}</div>
                 <div class="product-description">${product.description}</div>
                 <div class="price">$${formatPrice(product.price)}</div>
-                <button class="add-to-cart-btn" onclick="handleAddToCart(${product.id})">Agregar al Carrito</button>
+                <button class="add-to-cart-btn" onclick="openProductDetail(${product.id}, event)">Ver mas</button>
             </div>
         `;
         grid.appendChild(card);
     });
+}
+
+function openProductDetail(productId, event) {
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+
+    window.location.href = `product.html?id=${productId}`;
 }
 
 /**

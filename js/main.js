@@ -135,8 +135,13 @@ window.addEventListener('scroll', function() {
 /**
  * Maneja la adición de un producto al carrito
  * @param {number} productId - ID del producto
+ * @param {Event} [event] - Evento click opcional
  */
-function handleAddToCart(productId) {
+function handleAddToCart(productId, event) {
+    if (event) {
+        event.stopPropagation();
+    }
+
     cart.addItem(productId);
     updateCartUI();
     showNotification('Producto agregado al carrito', 'success');
