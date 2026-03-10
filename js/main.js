@@ -1,6 +1,35 @@
 // main.js - Coordinador principal y manejadores de eventos
 
-const WHATSAPP_PHONE = '59812345678';
+const WHATSAPP_PHONE = '59898216823';
+const WHATSAPP_TEXT = 'Hola RAIZA, quiero consultar por sus productos.';
+
+/**
+ * Abre WhatsApp según el dispositivo:
+ * - Escritorio: WhatsApp Web
+ * - Móvil: App nativa (si existe), con fallback web
+ * @param {Event} event - Evento click del botón
+ */
+function openWhatsAppContact(event) {
+    if (event) {
+        event.preventDefault();
+    }
+
+    const encodedText = encodeURIComponent(WHATSAPP_TEXT);
+    const webUrl = `https://web.whatsapp.com/send?phone=${WHATSAPP_PHONE}&text=${encodedText}`;
+    const waUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodedText}`;
+    const appUrl = `whatsapp://send?phone=${WHATSAPP_PHONE}&text=${encodedText}`;
+    const isMobile = /Android|iPhone|iPad|iPod|Windows Phone|IEMobile|Mobile/i.test(navigator.userAgent);
+
+    if (isMobile) {
+        window.location.href = appUrl;
+        setTimeout(() => {
+            window.location.href = waUrl;
+        }, 900);
+        return;
+    }
+
+    window.open(webUrl, '_blank', 'noopener,noreferrer');
+}
 
 // ==================== SLIDESHOW ====================
 
@@ -71,6 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeStyles();
     renderProducts(products);
     updateCartUI();
+    updateAuthUI();
     
     // Iniciar slideshow
     showSlides(slideIndex);
@@ -151,6 +181,12 @@ function continueShopping() {
  * Maneja el proceso de pago
  */
 function checkout() {
+    if (!auth.isLoggedIn()) {
+        showNotification('Debes iniciar sesión para continuar con la compra', 'info');
+        openAuthModal('login');
+        return;
+    }
+
     const summary = cart.getSummary();
     
     if (summary.isEmpty) {

@@ -7,6 +7,18 @@ class ShoppingCart {
     }
 
     /**
+     * Obtiene la clave de almacenamiento según la sesión actual
+     * @returns {string} Clave de localStorage por usuario o invitado
+     */
+    getStorageKey() {
+        if (typeof auth !== 'undefined' && auth.isLoggedIn()) {
+            const currentUser = auth.getCurrentUser();
+            return `raiza_cart_user_${currentUser.id}`;
+        }
+        return 'raiza_cart_guest';
+    }
+
+    /**
      * Agrega un producto al carrito
      * @param {number} productId - ID del producto
      */
@@ -114,16 +126,26 @@ class ShoppingCart {
      * Guarda el carrito en localStorage
      */
     saveToStorage() {
-        localStorage.setItem('babylove_cart', JSON.stringify(this.items));
+        localStorage.setItem(this.getStorageKey(), JSON.stringify(this.items));
     }
 
     /**
      * Carga el carrito desde localStorage
      */
     loadFromStorage() {
-        const saved = localStorage.getItem('babylove_cart');
-        if (saved) {
+        const saved = localStorage.getItem(this.getStorageKey());
+        if (!saved) {
+            this.items = [];
+            return;
+        }
+
+        try {
             this.items = JSON.parse(saved);
+            if (!Array.isArray(this.items)) {
+                this.items = [];
+            }
+        } catch {
+            this.items = [];
         }
     }
 }
