@@ -13,7 +13,8 @@ function renderProducts(productsToShow) {
         card.className = 'product-card';
 
         const hasGallery = Array.isArray(product.gallery) && product.gallery.length > 1;
-        const imageMarkup = hasGallery
+        const showDoublePreview = hasGallery && !Boolean(product.catalogSinglePreview);
+        const imageMarkup = showDoublePreview
             ? `
                 <div class="product-image product-image-double">
                     ${product.gallery.slice(0, 2).map((img, index) => `<img src="${img}" alt="${product.name} ${index + 1}" loading="lazy" class="product-image-split">`).join('')}

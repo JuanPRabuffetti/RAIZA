@@ -94,7 +94,17 @@ const products = [
         price: 490,
         description: "Juego de memoria con ilustraciones de animales marinos. Cartas plastificadas y resistentes al agua, ideal para estimulación temprana.",
         image: "pictures/memo1.jpeg",
-        gallery: ["pictures/memo1.jpeg", "pictures/memo2.jpeg"],
+        gallery: [
+            "pictures/memo1.jpeg",
+            "pictures/memo2.jpeg",
+            "pictures/memo (1).jpeg",
+            "pictures/memo (2).jpeg",
+            "pictures/memo (3).jpeg",
+            "pictures/memo (4).jpeg",
+            "pictures/memo (5).jpeg",
+            "pictures/memo (6).jpeg"
+        ],
+        catalogDoublePreview: true,
         available: true
     },
     {
@@ -103,7 +113,12 @@ const products = [
         category: "accesorios",
         price: 390,
         description: "Almohadillas para sellos de manos y pies de bebés, diseñadas para conservar impresiones duraderas.",
-        image: "pictures/memo2.jpeg",
+        image: "pictures/almohadilla_huellas.jpeg",
+        gallery: [
+            "pictures/almohadilla_huellas.jpeg",
+            "pictures/almohadilla2.jpeg"
+        ],
+        catalogSinglePreview: true,
         available: false
     }
 ];

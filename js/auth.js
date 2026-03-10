@@ -121,6 +121,9 @@ function updateAuthUI() {
     const controls = document.getElementById('authControls');
     const userMenu = document.getElementById('userMenu');
     const userGreeting = document.getElementById('userGreeting');
+    const mobileLogin = document.getElementById('mobileLoginOption');
+    const mobileRegister = document.getElementById('mobileRegisterOption');
+    const mobileLogout = document.getElementById('mobileLogoutOption');
 
     if (!controls || !userMenu || !userGreeting) {
         return;
@@ -131,10 +134,18 @@ function updateAuthUI() {
         userGreeting.textContent = `Hola, ${user.name}`;
         controls.style.display = 'none';
         userMenu.style.display = 'flex';
+
+        if (mobileLogin) mobileLogin.style.display = 'none';
+        if (mobileRegister) mobileRegister.style.display = 'none';
+        if (mobileLogout) mobileLogout.style.display = 'block';
     } else {
         controls.style.display = 'flex';
         userMenu.style.display = 'none';
         userGreeting.textContent = '';
+
+        if (mobileLogin) mobileLogin.style.display = 'block';
+        if (mobileRegister) mobileRegister.style.display = 'block';
+        if (mobileLogout) mobileLogout.style.display = 'none';
     }
 }
 
@@ -142,6 +153,7 @@ function openAuthModal(mode = 'login') {
     const modal = document.getElementById('authModal');
     if (!modal) return;
 
+    closeMobileAuthMenu();
     modal.classList.add('active');
     switchAuthTab(mode);
 }
@@ -221,6 +233,7 @@ function handleLogin(event) {
 function logoutUser() {
     auth.logout();
     updateAuthUI();
+    closeMobileAuthMenu();
     if (typeof cart !== 'undefined') {
         cart.loadFromStorage();
         updateCartUI();
@@ -228,9 +241,39 @@ function logoutUser() {
     showNotification('Sesión cerrada', 'info');
 }
 
+function toggleMobileAuthMenu() {
+    const menu = document.getElementById('mobileAuthMenu');
+    const trigger = document.getElementById('mobileUserBtn');
+
+    if (!menu || !trigger) {
+        return;
+    }
+
+    const isOpen = menu.classList.toggle('is-open');
+    trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+}
+
+function closeMobileAuthMenu() {
+    const menu = document.getElementById('mobileAuthMenu');
+    const trigger = document.getElementById('mobileUserBtn');
+
+    if (!menu || !trigger) {
+        return;
+    }
+
+    menu.classList.remove('is-open');
+    trigger.setAttribute('aria-expanded', 'false');
+}
+
 // Cerrar modal auth al hacer clic en el fondo
 document.addEventListener('click', function(event) {
     const authModal = document.getElementById('authModal');
+    const mobileDropdown = document.getElementById('mobileAuthDropdown');
+
+    if (mobileDropdown && !mobileDropdown.contains(event.target)) {
+        closeMobileAuthMenu();
+    }
+
     if (!authModal || !authModal.classList.contains('active')) {
         return;
     }

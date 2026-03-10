@@ -23,6 +23,18 @@
                     <button type="button" class="auth-btn" onclick="logoutUser()">Salir</button>
                 </li>
             </ul>
+            <div class="mobile-auth-dropdown" id="mobileAuthDropdown">
+                <button type="button" class="mobile-user-btn" onclick="toggleMobileAuthMenu()" aria-label="Opciones de usuario" aria-expanded="false" id="mobileUserBtn">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-4.418 0-8 2.239-8 5v1a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1c0-2.761-3.582-5-8-5z"/>
+                    </svg>
+                </button>
+                <div class="mobile-auth-menu" id="mobileAuthMenu">
+                    <button type="button" class="mobile-auth-option" id="mobileLoginOption" onclick="openAuthModal('login')">Loguearse</button>
+                    <button type="button" class="mobile-auth-option" id="mobileRegisterOption" onclick="openAuthModal('register')">Registrarse</button>
+                    <button type="button" class="mobile-auth-option mobile-auth-logout" id="mobileLogoutOption" onclick="logoutUser()">Salir</button>
+                </div>
+            </div>
             <div class="cart-icon" onclick="toggleCartVisibility()">
                 Carrito
                 <span class="cart-count" id="cartCount">0</span>
