@@ -1079,18 +1079,35 @@ footer::before {
         height: 250px;
     }
 
+    .slide-content {
+        padding: 1rem;
+    }
+
     .slide-content h1 {
         font-size: 1.4rem;
     }
 
     .slide-content p {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
         margin-bottom: 0.8rem;
     }
 
+    /* hide navigation controls on mobile */
     .prev, .next {
-        padding: 10px;
-        font-size: 14px;
+        display: none;
+    }
+    .dots-container {
+        display: none;
+    }
+    .slide-content {
+        padding: 1.5rem;
+        justify-content: center;
+        text-align: center;
+    }
+
+    /* hide slide call-to-action buttons on small screens */
+    .hero .slide-content .btn {
+        display: none;
     }
 
     /* Section Title */
