@@ -1,5 +1,32 @@
 // utils.js - Utilidades matemáticas y funciones auxiliares
 
+const WHATSAPP_PHONE = '59898216823';
+const WHATSAPP_DEFAULT_TEXT = 'Hola RAIZA, quiero consultar por sus productos.';
+
+function buildWhatsAppUrls(phone, text) {
+    const encodedText = encodeURIComponent(text);
+    return {
+        webUrl: `https://web.whatsapp.com/send?phone=${phone}&text=${encodedText}`,
+        waUrl: `https://wa.me/${phone}?text=${encodedText}`,
+        appUrl: `whatsapp://send?phone=${phone}&text=${encodedText}`
+    };
+}
+
+function openWhatsAppMessage(phone, text) {
+    const { webUrl, waUrl, appUrl } = buildWhatsAppUrls(phone, text);
+    const isMobile = /Android|iPhone|iPad|iPod|Windows Phone|IEMobile|Mobile/i.test(navigator.userAgent);
+
+    if (isMobile) {
+        window.location.href = appUrl;
+        setTimeout(() => {
+            window.location.href = waUrl;
+        }, 900);
+        return;
+    }
+
+    window.open(webUrl, '_blank', 'noopener,noreferrer');
+}
+
 /**
  * Calcula el total del carrito
  * @param {Array} cart - Array de items del carrito

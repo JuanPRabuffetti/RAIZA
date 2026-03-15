@@ -27,7 +27,7 @@ const products = [
         name: "Tarjetas del Primer Año",
         category: "libros",
         price: 790,
-        description: "Set de 12 tarjetas ilustradas para los primeros doce meses y eventos clave; se presentan en bolsa de tela.",
+        description: "Set de 24 tarjetas ilustradas para los primeros doce meses y eventos clave; se presentan en bolsa de tela.",
         image: "pictures/tarjetas1.jpeg",
         gallery: [
             "pictures/tarjetas1.jpeg",

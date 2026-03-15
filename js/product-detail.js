@@ -56,7 +56,7 @@ function renderProductDetail() {
             <h1 class="product-detail-title">${product.name}</h1>
             <p class="product-detail-description">${product.description}</p>
             <p class="product-detail-price">$${formatPrice(product.price)}</p>
-            <button type="button" class="btn" onclick="addDetailProductToCart(${product.id})">Agregar al carrito</button>
+            <button type="button" class="btn" onclick="openProductWhatsApp(${product.id})">Saber mas</button>
         </div>
     `;
 
@@ -123,9 +123,30 @@ function bindMainImageMagnifier() {
     });
 }
 
-function addDetailProductToCart(productId) {
-    cart.addItem(productId);
-    showNotification('Producto agregado al carrito', 'success');
+function buildProductWhatsAppMessage(product) {
+    const imageUrl = Array.isArray(product.gallery) && product.gallery.length > 0
+        ? product.gallery[0]
+        : product.image;
+    const productUrl = window.location.href;
+
+    return [
+        'Hola RAIZA, quisiera saber mas sobre este producto:',
+        '',
+        `Producto: ${product.name}`,
+        `Foto: ${imageUrl}`,
+        `Detalle: ${productUrl}`
+    ].join('\n');
+}
+
+function openProductWhatsApp(productId) {
+    const product = findProductById(productId);
+    if (!product) {
+        showNotification('No pudimos cargar el producto para WhatsApp.', 'error');
+        return;
+    }
+
+    const message = buildProductWhatsAppMessage(product);
+    openWhatsAppMessage(WHATSAPP_PHONE, message);
 }
 
 document.addEventListener('DOMContentLoaded', function() {

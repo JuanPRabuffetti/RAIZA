@@ -1,7 +1,6 @@
 // main.js - Coordinador principal y manejadores de eventos
 
-const WHATSAPP_PHONE = '59898216823';
-const WHATSAPP_TEXT = 'Hola RAIZA, quiero consultar por sus productos.';
+const WHATSAPP_TEXT = WHATSAPP_DEFAULT_TEXT;
 
 /**
  * Abre WhatsApp según el dispositivo:
@@ -14,21 +13,7 @@ function openWhatsAppContact(event) {
         event.preventDefault();
     }
 
-    const encodedText = encodeURIComponent(WHATSAPP_TEXT);
-    const webUrl = `https://web.whatsapp.com/send?phone=${WHATSAPP_PHONE}&text=${encodedText}`;
-    const waUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodedText}`;
-    const appUrl = `whatsapp://send?phone=${WHATSAPP_PHONE}&text=${encodedText}`;
-    const isMobile = /Android|iPhone|iPad|iPod|Windows Phone|IEMobile|Mobile/i.test(navigator.userAgent);
-
-    if (isMobile) {
-        window.location.href = appUrl;
-        setTimeout(() => {
-            window.location.href = waUrl;
-        }, 900);
-        return;
-    }
-
-    window.open(webUrl, '_blank', 'noopener,noreferrer');
+    openWhatsAppMessage(WHATSAPP_PHONE, WHATSAPP_TEXT);
 }
 
 // ==================== SLIDESHOW ====================
