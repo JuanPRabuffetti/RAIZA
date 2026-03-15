@@ -125,7 +125,7 @@ function bindMainImageMagnifier() {
 
 function buildProductWhatsAppMessage(product) {
     return [
-        'Hola RAIZA, quisiera mas informacion sobre este producto:',
+        'Hola, quiero mas informacion sobre este producto:',
         '',
         `Producto: ${product.name}`
     ].join('\n');

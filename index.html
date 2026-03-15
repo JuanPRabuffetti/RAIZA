@@ -91,10 +91,12 @@
     <section class="container" id="contacto" style="padding: 3rem 2rem;">
         <h2 class="section-title">Contáctenos</h2>
         <div style="max-width: 500px; margin: 0 auto; display: flex; justify-content: center;">
-            <form class="contact-form" onsubmit="handleContactForm(event)" style="display: flex; flex-direction: column; gap: 1rem; width: 100%;">
-                <input type="text" placeholder="Nombre completo" required style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px;">
-                <input type="email" placeholder="Correo electrónico" required style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px;">
-                <textarea placeholder="Mensaje" rows="5" required style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+            <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="display: flex; flex-direction: column; gap: 1rem; width: 100%;" netlify>
+                <input type="hidden" name="form-name" value="contact">
+                <input type="text" name="name" placeholder="Nombre completo" required style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px;">
+                <input type="email" name="email" placeholder="Correo electrónico" required style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px;">
+                <textarea name="message" placeholder="Mensaje" rows="5" required style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+                <input type="text" name="bot-field" tabindex="-1" autocomplete="off" style="display: none;">
                 <button type="submit" class="btn" style="width: 100%;">Enviar</button>
             </form>
         </div>
@@ -126,8 +128,8 @@
             <div class="footer-section">
                 <h3>Contacto</h3>
                 <ul>
-                    <li>Email: info@raiza.com</li>
-                    <li>Teléfono: +34 900 123 456</li>
+                    <li>Email: florabuffetti@gmail.com</li>
+                    <li>Teléfono: +598 98 216 823</li>
                     <li>Dirección: Canelones, Ciudad de la Costa</li>
                 </ul>
             </div>
