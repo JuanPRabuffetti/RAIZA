@@ -124,16 +124,19 @@ function bindMainImageMagnifier() {
 }
 
 function buildProductWhatsAppMessage(product) {
-    const imageUrl = Array.isArray(product.gallery) && product.gallery.length > 0
+    const rawImageUrl = Array.isArray(product.gallery) && product.gallery.length > 0
         ? product.gallery[0]
         : product.image;
+    const imageUrl = rawImageUrl
+        ? new URL(rawImageUrl, window.location.origin + '/').href
+        : '';
     const productUrl = window.location.href;
 
     return [
         'Hola RAIZA, quisiera saber mas sobre este producto:',
         '',
         `Producto: ${product.name}`,
-        `Foto: ${imageUrl}`,
+        imageUrl ? `Foto: ${imageUrl}` : null,
         `Detalle: ${productUrl}`
     ].join('\n');
 }
