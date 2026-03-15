@@ -5,7 +5,7 @@ const products = [
         name: "Libro para Embarazo",
         category: "libros",
         price: 1190,
-        description: "Tamaño A5 con 60 páginas para documentar el embarazo: ecografías, notas de control y pensamientos. Se entrega en bolsa de tela.",
+        description: "Cuaderno diseñado para acompañar y registrar cada etapa del embarazo. Tamaño A5, con 60 páginas en papel ecológico de 250 g, ideal para guardar ecografías, anotar controles médicos, pensamientos y recuerdos de esta etapa tan especial. Se entrega en bolsa de tela, perfecta para protegerlo y conservarlo con el tiempo. ",
         image: "pictures/libro_seguimiento_embarazo.jpeg",
         gallery: [
             "pictures/libro_seguimiento_embarazo.jpeg",
@@ -52,7 +52,7 @@ const products = [
         name: "Libro de Recuerdos del Bebé",
         category: "libros",
         price: 1490,
-        description: "Impreso en papel ecológico con 70 páginas para conservar recuerdos y fotografías del primer año. Incluye tarjeta personalizada. Se entrega en bolsa de lienzo.",
+        description: "Libro diseñado para conservar los momentos más especiales del primer año de vida. Impreso en papel ecológico con 70 páginas de hojas gruesas de 250 g, ideales para escribir, pegar fotografías y guardar recuerdos. Incluye tarjeta personalizada con el nombre del bebé y se entrega en bolsa de lienzo para protegerlo y conservarlo.",
         image: "pictures/libro_de_recuerdos_sin_personalizar.jpeg",
         gallery: [
             "pictures/libro_de_recuerdos_sin_personalizar.jpeg",
@@ -72,7 +72,7 @@ const products = [
         name: "Libro de Recuerdos Personalizado",
         category: "libros",
         price: 1590,
-        description: "Versión personalizada del libro de recuerdos, con carátula que puede llevar el nombre del bebé. Papel ecológico, 70 páginas en bolsa de lienzo.",
+        description: "Versión personalizada del libro de recuerdos, con carátula diseñada con el nombre del bebé. Impreso en papel ecológico de 250 g, de excelente calidad. Incluye bolsa de lienzo para guardarlo y conservarlo",
         image: "pictures/libro_de_recuerdos_personalizado.jpeg",
         gallery: [
             "pictures/libro_de_recuerdos_personalizado.jpeg",
@@ -112,7 +112,7 @@ const products = [
         name: "Almohadillas para Sellos y Manos",
         category: "accesorios",
         price: 390,
-        description: "Almohadillas para sellos de manos y pies de bebés, diseñadas para conservar impresiones duraderas.",
+        description: "Almohadillas diseñadas para tomar las huellas de las manos y los pies del bebé de forma simple y prolija, permitiendo conservar una impresión duradera de este momento único. Son ideales para completar la sección de huellas del Libro de Recuerdos del Bebé y guardar ese recuerdo especial para siempre.",
         image: "pictures/almohadilla_huellas.jpeg",
         gallery: [
             "pictures/almohadilla_huellas.jpeg",
