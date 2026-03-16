@@ -204,7 +204,7 @@ function continueShopping() {
 function checkout() {
     if (!auth.isLoggedIn()) {
         showNotification('Debes iniciar sesión para continuar con la compra', 'info');
-        openAuthModal('login');
+        openAuthModal('register');
         return;
     }
 

@@ -697,39 +697,6 @@ nav a:hover::after {
     border-radius: 2px;
 }
 
-/* Fotos destacadas */
-.photo-section {
-    padding: 3.5rem 0 2rem;
-}
-
-.photo-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2rem;
-}
-
-.photo-card {
-    background: #ffffff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 12px 28px rgba(139, 111, 71, 0.18);
-}
-
-.photo-card img {
-    width: 100%;
-    height: 320px;
-    object-fit: cover;
-    display: block;
-}
-
-.photo-card figcaption {
-    padding: 1rem 1.2rem;
-    text-align: center;
-    color: #8B6F47;
-    font-weight: 500;
-    background: #fbf7f1;
-}
-
 .filters {
     display: flex;
     gap: 1rem;
@@ -1101,6 +1068,10 @@ nav a:hover::after {
     transition: all 0.25s ease;
 }
 
+.auth-tab-hidden {
+    display: none;
+}
+
 .auth-tab.active {
     background: #A88970;
     color: white;
@@ -1129,6 +1100,10 @@ nav a:hover::after {
 
 .auth-hidden {
     display: none;
+}
+
+.is-hidden {
+    display: none !important;
 }
 
 .cart-modal.active {
@@ -1311,23 +1286,12 @@ nav a:hover::after {
 
 /* Footer */
 footer {
-    background: linear-gradient(135deg, #8B6F47 0%, #A0826D 50%, #C99A6E 100%);
+    background: #8B6F47;
     color: white;
     padding: 3rem 2rem;
     margin-top: 4rem;
     position: relative;
     overflow: hidden;
-}
-
-footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
-    pointer-events: none;
 }
 
 .footer-content {
@@ -1480,19 +1444,6 @@ footer::before {
 
     .section-title::after {
         width: 60px;
-    }
-
-    .photo-section {
-        padding: 2.5rem 0 1.5rem;
-    }
-
-    .photo-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .photo-card img {
-        height: 260px;
     }
 
     /* Filters */
@@ -1768,9 +1719,6 @@ footer::before {
         font-size: 0.85rem;
     }
 
-    .photo-card img {
-        height: 220px;
-    }
 }
 
 .rating {

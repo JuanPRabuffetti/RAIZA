@@ -14,9 +14,8 @@
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#productos">Productos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-                <li class="auth-controls" id="authControls">
-                    <button type="button" class="auth-btn" onclick="openAuthModal('login')">Loguearse/Registrarse</button>
+                <li class="auth-controls is-hidden" id="authControls">
+                    <button type="button" class="auth-btn" onclick="openAuthModal('register')">Registrarse</button>
                 </li>
                 <li class="user-menu" id="userMenu">
                     <span class="user-greeting" id="userGreeting"></span>
@@ -30,7 +29,6 @@
                     </svg>
                 </button>
                 <div class="mobile-auth-menu" id="mobileAuthMenu">
-                    <button type="button" class="mobile-auth-option" id="mobileLoginOption" onclick="openAuthModal('login')">Loguearse</button>
                     <button type="button" class="mobile-auth-option" id="mobileRegisterOption" onclick="openAuthModal('register')">Registrarse</button>
                     <button type="button" class="mobile-auth-option mobile-auth-logout" id="mobileLogoutOption" onclick="logoutUser()">Salir</button>
                 </div>
@@ -74,22 +72,6 @@
         </div>
     </section>
 
-    <!-- Fotos Destacadas -->
-    <section class="container photo-section" id="galeria">
-        <h2 class="section-title">Fotos destacadas</h2>
-
-        <div class="photo-grid">
-            <figure class="photo-card">
-                <img src="pictures/libroembarazo1.jpeg" alt="Libro de seguimiento del embarazo">
-                <figcaption>Libro de seguimiento del embarazo</figcaption>
-            </figure>
-            <figure class="photo-card">
-                <img src="pictures/almohadilla_huellas.jpeg" alt="Almohadilla de huellas para bebe">
-                <figcaption>Almohadilla de huellas para bebe</figcaption>
-            </figure>
-        </div>
-    </section>
-
     <!-- Productos -->
     <section class="container products-section" id="productos">
         <h2 class="section-title">Catálogo de productos</h2>
@@ -104,7 +86,7 @@
     </section>
 
     <!-- Sección de Contacto -->
-    <section class="container" id="contacto" style="padding: 3rem 2rem;">
+    <section class="container is-hidden" id="contacto" style="padding: 3rem 2rem;">
         <h2 class="section-title">Contáctenos</h2>
         <div style="max-width: 500px; margin: 0 auto; display: flex; justify-content: center;">
             <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="display: flex; flex-direction: column; gap: 1rem; width: 100%;" netlify>
@@ -144,7 +126,6 @@
             <div class="footer-section">
                 <h3>Contacto</h3>
                 <ul>
-                    <li>Email: florabuffetti@gmail.com</li>
                     <li>Teléfono: +598 98 216 823</li>
                     <li>Dirección: Canelones, Ciudad de la Costa</li>
                 </ul>
@@ -176,20 +157,20 @@
     <div class="auth-modal" id="authModal">
         <div class="auth-content">
             <button class="close-btn" type="button" onclick="closeAuthModal()">✕</button>
-            <h2 class="auth-title" id="authTitle">Ingresar</h2>
+            <h2 class="auth-title" id="authTitle">Crear cuenta</h2>
 
             <div class="auth-tabs">
-                <button type="button" class="auth-tab active" id="loginTab" onclick="switchAuthTab('login')">Ingresar</button>
-                <button type="button" class="auth-tab" id="registerTab" onclick="switchAuthTab('register')">Registrarse</button>
+                <button type="button" class="auth-tab auth-tab-hidden" id="loginTab" onclick="switchAuthTab('login')">Ingresar</button>
+                <button type="button" class="auth-tab active" id="registerTab" onclick="switchAuthTab('register')">Registrarse</button>
             </div>
 
-            <form id="loginForm" class="auth-form" onsubmit="handleLogin(event)">
+            <form id="loginForm" class="auth-form auth-hidden" onsubmit="handleLogin(event)">
                 <input type="email" id="loginEmail" placeholder="Correo electrónico" required>
                 <input type="password" id="loginPassword" placeholder="Contraseña" required minlength="6">
                 <button type="submit" class="btn auth-submit">Entrar</button>
             </form>
 
-            <form id="registerForm" class="auth-form auth-hidden" onsubmit="handleRegister(event)">
+            <form id="registerForm" class="auth-form" onsubmit="handleRegister(event)">
                 <input type="text" id="registerName" placeholder="Nombre completo" required minlength="2">
                 <input type="email" id="registerEmail" placeholder="Correo electrónico" required>
                 <input type="password" id="registerPassword" placeholder="Contraseña" required minlength="6">

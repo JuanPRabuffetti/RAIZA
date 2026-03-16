@@ -83,7 +83,9 @@ const products = [
             "pictures/librorecuerdos1 (13).jpeg",
             "pictures/librorecuerdos1 (14).jpeg",
             "pictures/librorecuerdos1 (15).jpeg",
-            "pictures/librorecuerdos1 (16).jpeg"
+            "pictures/librorecuerdos1 (16).jpeg",
+            "pictures/libro_personalizado (1).jpeg",
+            "pictures/libro_personalizado (2).jpeg",
         ],
         available: true
     },

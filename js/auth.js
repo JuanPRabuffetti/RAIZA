@@ -149,7 +149,7 @@ function updateAuthUI() {
     }
 }
 
-function openAuthModal(mode = 'login') {
+function openAuthModal(mode = 'register') {
     const modal = document.getElementById('authModal');
     if (!modal) return;
 
