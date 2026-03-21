@@ -74,7 +74,8 @@ function getCategoryLabel(category) {
         'libros': 'Libros',
         'jabones': 'Jabones',
         'accesorios': 'Accesorios',
-        'juegos': 'Juegos'
+        'juegos': 'Juegos',
+        'ropa': 'Ropa'
     };
     return labels[category] || category;
 }

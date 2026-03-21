@@ -122,5 +122,21 @@ const products = [
         ],
         catalogSinglePreview: true,
         available: false
+    },
+    {
+        id: 7,
+        name: "Separadores de percha para ropa de bebé",
+        category: "ropa",
+        price: 690,
+        description: "Organizá la ropita de tu bebé de forma práctica con nuestros separadores de perchas por edad. Son ideales para mantener el placard ordenado y encontrar fácilmente cada etapa, desde recién nacido hasta los primeros dos años. Son especialmente útiles para preparar el ropero antes de la llegada del bebé o para reorganizar la ropa a medida que crece. Están elaborados con materiales resistentes y un diseño delicado, pensados para acompañar la estética de un espacio cálido, natural y cuidado.",
+        image: "pictures/separadoresropabebe (1).jpeg",
+        gallery: [
+            "pictures/separadoresropabebe (1).jpeg",
+            "pictures/separadoresropabebe (2).jpeg",
+            "pictures/separadoresropabebe (3).jpeg",
+            "pictures/separadoresropabebe (4).jpeg",
+            "pictures/separadoresropabebe (5).jpeg"
+        ],
+        available: true
     }
 ];
