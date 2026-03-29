@@ -1332,7 +1332,7 @@ nav a:hover::after {
 
 /* Footer */
 footer {
-    background: #8B6F47;
+    background: #aa8c69;
     color: white;
     padding: 3rem 2rem;
     margin-top: 4rem;
@@ -1404,6 +1404,13 @@ footer {
     nav {
         padding: 0.8rem 1rem;
         justify-content: space-between;
+        flex-wrap: wrap;
+        row-gap: 0.6rem;
+        align-items: center;
+    }
+
+    header.header-hidden {
+        transform: translateY(0);
     }
 
     .mobile-auth-dropdown {
@@ -1412,6 +1419,10 @@ footer {
 
     .logo {
         font-size: 1.4rem;
+    }
+
+    .logo-image {
+        height: 48px;
     }
 
     .auth-controls,
@@ -1429,12 +1440,17 @@ footer {
     }
 
     nav ul {
-        display: none;
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        width: auto;
+        margin-left: auto;
+        align-items: center;
     }
 
     .mobile-auth-dropdown {
-        display: inline-flex;
-        align-items: center;
+        display: none;
     }
 
     .cart-icon {
@@ -1643,10 +1659,23 @@ footer {
     /* Header */
     nav {
         padding: 0.6rem 0.8rem;
+        flex-direction: row;
+        align-items: center;
     }
 
     .logo {
         font-size: 1.2rem;
+    }
+
+    .logo-image {
+        height: 40px;
+    }
+
+    nav ul {
+        width: auto;
+        justify-content: flex-end;
+        margin-left: auto;
+        row-gap: 0;
     }
 
     .cart-icon {
