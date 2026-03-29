@@ -118,7 +118,10 @@ const products = [
         image: "pictures/almohadilla_huellas.jpeg",
         gallery: [
             "pictures/almohadilla_huellas.jpeg",
-            "pictures/almohadilla2.jpeg"
+            "pictures/almohadilla2.jpeg",
+            "pictures/almohadillas (1).jpeg",
+            "pictures/almohadillas (2).jpeg",
+            "pictures/almohadillas (3).jpeg"
         ],
         catalogSinglePreview: true,
         available: false
