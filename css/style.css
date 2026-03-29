@@ -16,6 +16,32 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Kudryashev Display';
+    src: url('../fonts/kudryashev-display/KudryashevDisplay.eot');
+    src: local('Kudryashev Display'), local('KudryashevDisplay'),
+        url('../fonts/kudryashev-display/KudryashevDisplay.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/kudryashev-display/KudryashevDisplay.woff2') format('woff2'),
+        url('../fonts/kudryashev-display/KudryashevDisplay.woff') format('woff'),
+        url('../fonts/kudryashev-display/KudryashevDisplay.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kudryashev Display';
+    src: url('../fonts/kudryashev-display/KudryashevDisplay-Sans.eot');
+    src: local('Kudryashev Display Sans'), local('KudryashevDisplay-Sans'),
+        url('../fonts/kudryashev-display/KudryashevDisplay-Sans.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/kudryashev-display/KudryashevDisplay-Sans.woff2') format('woff2'),
+        url('../fonts/kudryashev-display/KudryashevDisplay-Sans.woff') format('woff'),
+        url('../fonts/kudryashev-display/KudryashevDisplay-Sans.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -34,11 +60,8 @@ body {
 .logo,
 nav a,
 .cart-icon,
-.slide-content h1,
 .cart-title,
 .footer-section h3,
-h1,
-h2,
 h3,
 h4,
 h5,
@@ -48,7 +71,7 @@ h6 {
 }
 
 #productos .section-title {
-    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Kudryashev Display', 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-style: normal;
 }
 
@@ -56,12 +79,27 @@ header .logo,
 header nav a,
 header .cart-icon,
 header .cart-count {
-    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Kudryashev Display', 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-style: normal;
+    font-size: 1.5rem;
+}
+
+header h1,
+header h2 {
+    font-family: 'Kudryashev Display', 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+}
+
+h1,
+h2,
+.slide-content h1,
+.section-title {
+    font-family: 'Kudryashev Display', 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
 }
 /* Header y Navegación */
 header {
-    background: #8B6F47;
+    background: #aa8c69;
     color: white;
     padding: 1rem 0;
     position: sticky;
@@ -211,6 +249,13 @@ nav {
     font-weight: bold;
     letter-spacing: 2px;
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo-image {
+    display: block;
+    height: 67px;
+    width: auto;
+    object-fit: contain;
 }
 
 /* Floating action buttons */
@@ -477,7 +522,8 @@ nav a:hover::after {
     margin-bottom: 1rem;
     animation: slideInDown 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both;
     text-shadow: 0 6px 12px rgba(0,0,0,0.2);
-    font-weight: 700;
+    font-family: 'Kudryashev Display', 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
     letter-spacing: 1px;
 }
 

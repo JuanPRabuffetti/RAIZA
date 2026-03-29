@@ -72,7 +72,7 @@ const products = [
         name: "Libro de Recuerdos Personalizado",
         category: "libros",
         price: 1590,
-        description: "Versión personalizada del libro de recuerdos, con carátula diseñada con el nombre del bebé. Impreso en papel ecológico de 250 g, de excelente calidad. Incluye bolsa de lienzo para guardarlo y conservarlo",
+        description: "Versión personalizada del libro de recuerdos, con carátula diseñada con el nombre del bebé. Impreso en papel ecológico de 250 g, de excelente calidad. Incluye bolsa de lienzo para guardarlo y conservarlo.",
         image: "pictures/libro_de_recuerdos_personalizado.jpeg",
         gallery: [
             "pictures/libro_de_recuerdos_personalizado.jpeg",
@@ -128,7 +128,7 @@ const products = [
         name: "Separadores de percha para ropa de bebé",
         category: "ropa",
         price: 690,
-        description: "Organizá la ropita de tu bebé de forma práctica con nuestros separadores de perchas por edad. Son ideales para mantener el placard ordenado y encontrar fácilmente cada etapa, desde recién nacido hasta los primeros dos años. Son especialmente útiles para preparar el ropero antes de la llegada del bebé o para reorganizar la ropa a medida que crece. Están elaborados con materiales resistentes y un diseño delicado, pensados para acompañar la estética de un espacio cálido, natural y cuidado.",
+        description: "Organizá la ropita de tu bebé de forma práctica con nuestros separadores de perchas por edad. Son ideales para mantener el placard ordenado y encontrar fácilmente cada etapa, desde recién nacido hasta los primeros dos años. Elaborados con materiales resistentes y un diseño delicado, pensados para acompañar la estética de un espacio cálido, natural y cuidado.",
         image: "pictures/separadoresropabebe (1).jpeg",
         gallery: [
             "pictures/separadoresropabebe (1).jpeg",
@@ -136,6 +136,23 @@ const products = [
             "pictures/separadoresropabebe (3).jpeg",
             "pictures/separadoresropabebe (4).jpeg",
             "pictures/separadoresropabebe (5).jpeg"
+        ],
+        available: true
+    },
+    {
+        id: 8,
+        name: "Tarjetas Personalizadas Cumple",
+        category: "tarjetas",
+        price: 370,
+        description: "Hacé que cada regalo tenga un toque único y especial. Estas tarjetas están diseñadas para acompañar tus obsequios de una forma delicada y significativa.Incluye 15 tarjetas personalizadas con el nombre que elijas Son ideales para cumpleaños infantiles, souvenirs o para sumar un detalle especial a tus regalos.",
+        image: "pictures/tarjetas_personalizadas_cumple (1).jpeg",
+        gallery: [
+            "pictures/tarjetas_personalizadas_cumple (1).jpeg",
+            "pictures/tarjetas_personalizadas_cumple (2).jpeg",
+            "pictures/tarjetas_personalizadas_cumple (3).jpeg",
+            "pictures/tarjetas_personalizadas_cumple (4).jpeg",
+            "pictures/tarjetas_personalizadas_cumple (5).jpeg",
+            "pictures/tarjetas_personalizadas_cumple (6).jpeg"
         ],
         available: true
     }
