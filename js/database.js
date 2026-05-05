@@ -163,8 +163,8 @@ const products = [
         id: 9,
         name: "Tarjetas Personalizadas para Evento",
         category: "tarjetas",
-        price: 370,
-        description: "Tarjetas personalizadas perfectas para eventos especiales. Diseñadas para añadir un toque único y memorable a tus celebraciones. Incluye 15 tarjetas personalizadas con el nombre que elijas, ideales para aniversarios, bautizos, comuniones u otros eventos importantes.",
+        price: 400,
+        description: "Tarjetas personalizadas para eventos, un detalle delicado y único para acompañar tus celebraciones. Ideales para cumpleaños, nacimientos, comunión y más, se personalizan con nombre y datos del evento. Incluyen bolsita de tela. Precio $20 por unidad, mínimo 20 unidades. Un recuerdo simple, lindo y pensado con dedicación.",
         image: "pictures/TARJETAS_PERSONALIZADAS_EVENTO (1).jpeg",
         gallery: [
             "pictures/TARJETAS_PERSONALIZADAS_EVENTO (1).jpeg",
