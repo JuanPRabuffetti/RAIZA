@@ -5,7 +5,7 @@ const products = [
         name: "Libro para Embarazo",
         category: "libros",
         price: 1190,
-        description: "Cuaderno diseñado para acompañar y registrar cada etapa del embarazo. Tamaño A5, con 60 páginas en papel ecológico de 250 g, ideal para guardar ecografías, anotar controles médicos, pensamientos y recuerdos de esta etapa tan especial. Se entrega en bolsa de tela, perfecta para protegerlo y conservarlo con el tiempo. ",
+        description: "Cuaderno diseñado para acompañar y registrar cada etapa del embarazo. Tamaño A5, con 60 páginas en papel ecológico de 200 g, ideal para guardar ecografías, anotar controles médicos, pensamientos y recuerdos de esta etapa tan especial. Se entrega en bolsa de tela, perfecta para protegerlo y conservarlo con el tiempo. ",
         image: "pictures/libro_seguimiento_embarazo.jpeg",
         gallery: [
             "pictures/libro_seguimiento_embarazo.jpeg",
@@ -72,7 +72,7 @@ const products = [
         name: "Libro de Recuerdos Personalizado",
         category: "libros",
         price: 1590,
-        description: "Versión personalizada del libro de recuerdos, con carátula diseñada con el nombre del bebé. Impreso en papel ecológico de 250 g, de excelente calidad. Incluye bolsa de lienzo para guardarlo y conservarlo.",
+        description: "Versión personalizada del libro de recuerdos, con carátula diseñada con el nombre del bebé. Impreso en papel ecológico de 200 g, de excelente calidad. Incluye bolsa de lienzo para guardarlo y conservarlo.",
         image: "pictures/libro_de_recuerdos_personalizado.jpeg",
         gallery: [
             "pictures/libro_de_recuerdos_personalizado.jpeg",
@@ -93,7 +93,7 @@ const products = [
         id: 5,
         name: "MEMO Bajo del Mar",
         category: "juegos",
-        price: 490,
+        price: 590,
         description: "Juego de memoria con ilustraciones de animales marinos. Cartas plastificadas y resistentes al agua, ideal para estimulación temprana.",
         image: "pictures/memo1.jpeg",
         gallery: [
@@ -104,7 +104,9 @@ const products = [
             "pictures/memo (3).jpeg",
             "pictures/memo (4).jpeg",
             "pictures/memo (5).jpeg",
-            "pictures/memo (6).jpeg"
+            "pictures/memo (6).jpeg",
+
+
         ],
         catalogDoublePreview: true,
         available: true
@@ -115,13 +117,14 @@ const products = [
         category: "accesorios",
         price: 390,
         description: "Almohadillas diseñadas para tomar las huellas de las manos y los pies del bebé de forma simple y prolija, permitiendo conservar una impresión duradera de este momento único. Son ideales para completar la sección de huellas del Libro de Recuerdos del Bebé y guardar ese recuerdo especial para siempre.",
-        image: "pictures/almohadilla_huellas.jpeg",
+        image: "pictures/almohadillas (1).jpeg",
         gallery: [
-            "pictures/almohadilla_huellas.jpeg",
-            "pictures/almohadilla2.jpeg",
             "pictures/almohadillas (1).jpeg",
             "pictures/almohadillas (2).jpeg",
-            "pictures/almohadillas (3).jpeg"
+            "pictures/almohadillas (3).jpeg",
+            "pictures/almohadillas (4).jpeg",
+            "pictures/almohadillas (5).jpeg",
+
         ],
         catalogSinglePreview: true,
         available: false
@@ -172,6 +175,39 @@ const products = [
             "pictures/TARJETAS_PERSONALIZADAS_EVENTO (3).jpeg",
             "pictures/TARJETAS_PERSONALIZADAS_EVENTO (4).jpeg"
         ],
+        available: true
+    },
+    {
+        id: 10,
+        name: "Frascos de Recuerdos para Bebé",
+        category: "accesorios",
+        price: 390,
+        description: "Pequeños tesoros para guardar el primer diente, el primer pelito y el cordón umbilical. Fabricados en madera natural, con un diseño delicado para conservar los recuerdos más valiosos de tu bebé.",
+        image: "pictures/frascos_de_recuerdos_para_bebe (1).jpeg",
+        gallery: [
+            "pictures/frascos_de_recuerdos_para_bebe (1).jpeg",
+            "pictures/frascos_de_recuerdos_para_bebe (2).jpeg",
+            "pictures/frascos_de_recuerdos_para_bebe (3).jpeg",
+            "pictures/frascos_de_recuerdos_para_bebe (4).jpeg",
+            "pictures/frascos_de_recuerdos_para_bebe (5).jpeg"
+        ],
+        available: true
+    },
+    {
+        id: 11,
+        name: "MEMO en el Bosque",
+        category: "juegos",
+        price: 490,
+        description: "Juego de memoria con ilustraciones de animales y elementos del bosque. Cartas plastificadas y resistentes al agua, ideal para estimulación temprana.",
+        image: "pictures/memobosque (1).jpeg",
+        gallery: [
+            "pictures/memobosque (1).jpeg",
+            "pictures/memobosque (2).jpeg",
+            "pictures/memobosque (3).jpeg",
+            "pictures/memobosque (4).jpeg",
+            "pictures/memobosque (5).jpeg"
+        ],
+        catalogDoublePreview: true,
         available: true
     }
 ];
