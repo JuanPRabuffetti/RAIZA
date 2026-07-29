@@ -52,7 +52,7 @@ const products = [
         name: "Libro de Recuerdos del Bebé",
         category: "libros",
         price: 1490,
-        description: "Libro diseñado para conservar los momentos más especiales del primer año de vida. Impreso en papel ecológico con 70 páginas de hojas gruesas de 250 g, ideales para escribir, pegar fotografías y guardar recuerdos. Incluye tarjeta personalizada con el nombre del bebé y se entrega en bolsa de lienzo para protegerlo y conservarlo.",
+        description: "Libro diseñado para conservar los momentos más especiales del primer año de vida. Impreso en papel ecológico con 70 páginas de hojas gruesas de 200 g, ideales para escribir, pegar fotografías y guardar recuerdos. Incluye tarjeta personalizada con el nombre del bebé y se entrega en bolsa de lienzo para protegerlo y conservarlo.",
         image: "pictures/libro_de_recuerdos_sin_personalizar.jpeg",
         gallery: [
             "pictures/libro_de_recuerdos_sin_personalizar.jpeg",
@@ -113,7 +113,7 @@ const products = [
     },
     {
         id: 6,
-        name: "Almohadillas para Sellos y Manos",
+        name: "Almohadillas para Manos y Pies",
         category: "accesorios",
         price: 390,
         description: "Almohadillas diseñadas para tomar las huellas de las manos y los pies del bebé de forma simple y prolija, permitiendo conservar una impresión duradera de este momento único. Son ideales para completar la sección de huellas del Libro de Recuerdos del Bebé y guardar ese recuerdo especial para siempre.",
@@ -124,6 +124,8 @@ const products = [
             "pictures/almohadillas (3).jpeg",
             "pictures/almohadillas (4).jpeg",
             "pictures/almohadillas (5).jpeg",
+            "pictures/almohadillasproduct (1).jpeg",
+            "pictures/almohadillasproduct (2).jpeg",
 
         ],
         catalogSinglePreview: true,
