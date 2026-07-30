@@ -198,7 +198,7 @@ const products = [
         id: 11,
         name: "MEMO en el Bosque",
         category: "juegos",
-        price: 490,
+        price: 590,
         description: "Juego de memoria con ilustraciones de animales y elementos del bosque. Cartas plastificadas y resistentes al agua, ideal para estimulación temprana.",
         image: "pictures/memobosque (1).jpeg",
         gallery: [
