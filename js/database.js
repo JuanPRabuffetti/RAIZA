@@ -128,8 +128,7 @@ const products = [
             "pictures/almohadillasproduct (2).jpeg",
 
         ],
-        catalogSinglePreview: true,
-        available: false
+        available: true
     },
     {
         id: 7,

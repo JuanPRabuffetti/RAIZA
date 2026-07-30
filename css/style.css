@@ -695,7 +695,7 @@ nav a:hover::after {
 .btn {
     display: inline-block;
     padding: 0.8rem 2rem;
-    background: #A88970;
+    background: #a8897079;
     color: white;
     text-decoration: none;
     border-radius: 4px;
@@ -705,6 +705,8 @@ nav a:hover::after {
     font-size: 1rem;
     font-weight: 600;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  
+
 }
 
 .btn:hover {
