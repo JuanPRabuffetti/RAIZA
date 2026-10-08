@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Tu catálogo · RAIZA</title>
+    <link rel="stylesheet" href="/css/admin.css">
+    <script type="module" src="/js/admin.js"></script>
+</head>
+<body>
+    <header class="admin-header">
+        <a class="brand" href="/" aria-label="RAIZA, volver a la tienda">RAIZA<span>hecho para recordar</span></a>
+        <nav aria-label="Navegación del panel">
+            <a class="store-link" href="/">Ver tienda <span aria-hidden="true">↗</span></a>
+            <button id="logoutButton" class="button button-quiet" type="button" hidden>Cerrar sesión</button>
+        </nav>
+    </header>
+    <main class="admin-main">
+        <section id="loginSection" class="welcome-layout">
+            <div class="welcome-copy">
+                <p class="eyebrow">EL TALLER / ADMINISTRACIÓN</p>
+                <h1>Cada detalle<br>cuenta.</h1>
+                <p>Un espacio para cuidar tu catálogo, sumar nuevas creaciones y mantener al día los productos de RAIZA.</p>
+                <div class="welcome-note"><span aria-hidden="true">✳</span><span>Tu tienda, a tu ritmo.<br>Los cambios se publican al guardar.</span></div>
+            </div>
+            <div class="login-card">
+                <span class="card-label">ACCESO PRIVADO</span>
+                <h2 id="authTitle">Bienvenida al taller</h2>
+                <p id="authDescription">Ingresá con tu cuenta administradora de Netlify Identity.</p>
+                <form id="loginForm">
+                    <label for="loginEmail">Correo electrónico</label>
+                    <input id="loginEmail" type="email" autocomplete="username" required placeholder="tu@email.com">
+                    <label for="loginPassword">Contraseña</label>
+                    <input id="loginPassword" type="password" autocomplete="current-password" required>
+                    <button class="button button-primary full-width" type="submit">Entrar al panel <span aria-hidden="true">→</span></button>
+                </form>
+                <form id="passwordForm" hidden>
+                    <label for="newPassword">Nueva contraseña</label>
+                    <input id="newPassword" type="password" autocomplete="new-password" minlength="10" required>
+                    <label for="repeatPassword">Repetir contraseña</label>
+                    <input id="repeatPassword" type="password" autocomplete="new-password" minlength="10" required>
+                    <p class="field-help">Usá al menos 10 caracteres.</p>
+                    <button class="button button-primary full-width" type="submit">Guardar contraseña</button>
+                </form>
+                <button id="recoverButton" class="text-button" type="button">Olvidé mi contraseña</button>
+                <p id="authMessage" class="message" role="status" aria-live="polite"></p>
+                <details class="setup-help">
+                    <summary>Primer acceso</summary>
+                    <p>Desde Netlify, abrí Identity e invitá al correo autorizado. Aceptá la invitación recibida por email y asigná el rol <strong>admin</strong> a esa cuenta en Netlify. Si ya existe, solo necesitás verificar su rol.</p>
+                    <p>Las cuentas de clientes de la tienda no dan acceso a este panel.</p>
+                </details>
+            </div>
+        </section>
+
+        <section id="catalogSection" hidden>
+            <div class="catalog-heading">
+                <div><p class="eyebrow">EL TALLER / PRODUCTOS</p><h1>Tu catálogo, a mano.</h1><p class="section-intro">Pequeñas creaciones. Grandes recuerdos.</p></div>
+                <button id="newProductButton" class="button button-primary" type="button"><span aria-hidden="true">+</span> Nuevo producto</button>
+            </div>
+            <div class="catalog-toolbar">
+                <div class="catalog-summary"><strong id="productCount">—</strong><span>productos en tu catálogo</span></div>
+                <div class="toolbar-controls">
+                    <label class="sr-only" for="searchProducts">Buscar productos</label>
+                    <input id="searchProducts" type="search" placeholder="Buscar una creación…">
+                    <label class="sr-only" for="filterCategory">Filtrar categoría</label>
+                    <select id="filterCategory"><option value="">Todas las categorías</option><option value="libros">Libros</option><option value="juegos">Juegos</option><option value="accesorios">Accesorios</option><option value="tarjetas">Tarjetas</option><option value="jabones">Jabones</option><option value="ropa">Ropa</option></select>
+                    <button id="refreshButton" class="button button-quiet" type="button" aria-label="Recargar catálogo">↻ Recargar</button>
+                </div>
+            </div>
+            <p id="catalogMessage" class="message" role="status" aria-live="polite"></p>
+            <div id="adminProducts" class="catalog-grid" aria-live="polite"></div>
+            <div class="catalog-footer"><span id="adminEmail"></span><span>Solo vos y las cuentas autorizadas pueden modificar el catálogo.</span></div>
+        </section>
+    </main>
+
+    <dialog id="productDialog" class="editor-dialog" aria-labelledby="editorTitle">
+        <form id="productForm">
+            <div class="dialog-heading"><div><p class="eyebrow">TU CREACIÓN</p><h2 id="editorTitle">Nuevo producto</h2></div><button id="closeEditor" class="icon-button" type="button" aria-label="Cerrar editor">×</button></div>
+            <div class="editor-body">
+                <div class="editor-fields">
+                    <label for="productName">Nombre del producto</label><input id="productName" name="name" maxlength="160" required placeholder="Una nueva historia para recordar">
+                    <div class="field-row"><div><label for="productCategory">Categoría</label><select id="productCategory" name="category" required><option value="libros">Libros</option><option value="juegos">Juegos</option><option value="accesorios">Accesorios</option><option value="tarjetas">Tarjetas</option><option value="jabones">Jabones</option><option value="ropa">Ropa</option></select></div><div><label for="productPrice">Precio ($ UYU)</label><input id="productPrice" name="price" type="number" min="0" max="99999999.99" step="0.01" inputmode="decimal" required placeholder="0,00"></div></div>
+                    <label for="productDescription">Descripción</label><textarea id="productDescription" name="description" rows="7" maxlength="10000" required placeholder="Contá qué hace especial a este producto…"></textarea>
+                    <label class="check-row"><input id="productAvailable" name="available" type="checkbox" checked><span><strong>Visible en la tienda</strong><small>Desmarcá para ocultarlo sin eliminarlo.</small></span></label>
+                    <label class="check-row"><input id="productSinglePreview" name="catalogSinglePreview" type="checkbox"><span><strong>Una sola foto en la tarjeta</strong><small>Si no, se muestran dos cuando hay galería.</small></span></label>
+                </div>
+                <div class="editor-images">
+                    <h3>Fotografías</h3><p class="field-help">La primera foto es la principal. Podés elegir otra, reordenarlas o quitarlas.</p>
+                    <label class="upload-area" for="imageFiles"><span aria-hidden="true">+</span><strong>Sumar fotografías</strong><small>JPG, PNG o WebP · hasta 4 MB por foto<br>Máximo 20 fotos por producto</small></label>
+                    <input id="imageFiles" class="sr-only" type="file" accept="image/jpeg,image/png,image/webp" multiple>
+                    <p id="uploadMessage" class="message" role="status" aria-live="polite"></p>
+                    <div id="editorGallery" class="editor-gallery"></div>
+                </div>
+            </div>
+            <p id="editorMessage" class="message editor-message" role="status" aria-live="polite"></p>
+            <div class="dialog-actions"><span>Se actualiza la tienda al guardar.</span><button id="cancelEditor" class="button button-quiet" type="button">Cancelar</button><button id="saveProduct" class="button button-primary" type="submit">Guardar producto</button></div>
+        </form>
+    </dialog>
+
+    <dialog id="deleteDialog" class="delete-dialog" aria-labelledby="deleteTitle">
+        <p class="eyebrow">ANTES DE CONTINUAR</p><h2 id="deleteTitle">¿Eliminar este producto?</h2><p id="deleteDescription"></p><p>Se quita de la tienda de forma permanente. Para ocultarlo temporalmente, editá su visibilidad.</p>
+        <p id="deleteMessage" class="message" role="status" aria-live="polite"></p>
+        <div class="delete-actions"><button id="cancelDelete" class="button button-quiet" type="button">Conservar producto</button><button id="confirmDelete" class="button button-danger" type="button">Sí, eliminar</button></div>
+    </dialog>
+    <footer class="page-footer">RAIZA <span>·</span> Cuidando los recuerdos, también detrás de escena.</footer>
+</body>
+</html>

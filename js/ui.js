@@ -8,6 +8,11 @@ function renderProducts(productsToShow) {
     const grid = document.getElementById('productsGrid');
     grid.innerHTML = '';
 
+    if (!productsToShow.length) {
+        grid.textContent = 'Pronto sumamos nuevas creaciones a nuestro catálogo.';
+        return;
+    }
+
     productsToShow.forEach(product => {
         const card = document.createElement('div');
         card.className = 'product-card';
@@ -17,21 +22,21 @@ function renderProducts(productsToShow) {
         const imageMarkup = showDoublePreview
             ? `
                 <div class="product-image product-image-double">
-                    ${product.gallery.slice(0, 2).map((img, index) => `<img src="${img}" alt="${product.name} ${index + 1}" loading="lazy" class="product-image-split">`).join('')}
+                    ${product.gallery.slice(0, 2).map((img, index) => `<img src="${escapeHtml(img)}" alt="${escapeHtml(product.name)} ${index + 1}" loading="lazy" class="product-image-split">`).join('')}
                 </div>
             `
             : `
                 <div class="product-image">
-                    <img src="${product.image}" alt="${product.name}" loading="lazy">
+                    <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy">
                 </div>
             `;
 
         card.innerHTML = `
             ${imageMarkup}
             <div class="product-info">
-                <div class="product-category">${getCategoryLabel(product.category)}</div>
-                <div class="product-name">${product.name}</div>
-                <div class="product-description">${product.description}</div>
+                <div class="product-category">${escapeHtml(getCategoryLabel(product.category))}</div>
+                <div class="product-name">${escapeHtml(product.name)}</div>
+                <div class="product-description">${escapeHtml(product.description)}</div>
                 <div class="price">$${formatPrice(product.price)}</div>
                 <button class="add-to-cart-btn" onclick="openProductDetail(${product.id}, event)">Ver mas</button>
             </div>
@@ -89,7 +94,7 @@ function updateCartUI() {
             itemDiv.className = 'cart-item';
             itemDiv.innerHTML = `
                 <div class="cart-item-info">
-                    <div class="cart-item-name">${item.name}</div>
+                    <div class="cart-item-name">${escapeHtml(item.name)}</div>
                     <div class="cart-item-price">$${formatPrice(item.price)} x ${item.quantity} = $${formatPrice(itemTotal)}</div>
                 </div>
                 <div class="quantity-control">
