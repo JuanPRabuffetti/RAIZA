@@ -99,7 +99,7 @@ function startAutoSlide() {
 
 document.addEventListener('DOMContentLoaded', function() {
     initializeStyles();
-    renderProducts(products);
+    refreshStoreCatalog();
     updateCartUI();
     updateAuthUI();
     
@@ -107,6 +107,22 @@ document.addEventListener('DOMContentLoaded', function() {
     showSlides(slideIndex);
     startAutoSlide();
 });
+
+async function refreshStoreCatalog() {
+    const grid = document.getElementById('productsGrid');
+    grid.textContent = 'Cargando nuestras creaciones…';
+    grid.setAttribute('aria-busy', 'true');
+    try {
+        await loadProducts();
+        cart.synchronizeCatalog();
+        renderProducts(products);
+        updateCartUI();
+    } catch {
+        renderCatalogError(grid, refreshStoreCatalog);
+    } finally {
+        grid.setAttribute('aria-busy', 'false');
+    }
+}
 
 window.addEventListener('scroll', function() {
     const header = document.querySelector('header');

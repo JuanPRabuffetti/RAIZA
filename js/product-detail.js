@@ -40,21 +40,21 @@ function renderProductDetail() {
     target.innerHTML = `
         <div class="product-gallery-panel">
             <div class="product-main-image-wrap">
-                <img id="productMainImage" class="product-main-image" src="${images[0]}" alt="${product.name}">
+                <img id="productMainImage" class="product-main-image" src="${escapeHtml(images[0])}" alt="${escapeHtml(product.name)}">
             </div>
             <div class="product-thumbs" id="productThumbs">
                 ${images.map((img, index) => `
-                    <button type="button" class="product-thumb ${index === 0 ? 'active' : ''}" data-image="${img}" aria-label="Vista ${index + 1}">
-                        <img src="${img}" alt="${product.name} ${index + 1}" loading="lazy">
+                    <button type="button" class="product-thumb ${index === 0 ? 'active' : ''}" data-image="${escapeHtml(img)}" aria-label="Vista ${index + 1}">
+                        <img src="${escapeHtml(img)}" alt="${escapeHtml(product.name)} ${index + 1}" loading="lazy">
                     </button>
                 `).join('')}
             </div>
         </div>
 
         <div class="product-detail-info">
-            <p class="product-detail-category">${getCategoryLabel(product.category)}</p>
-            <h1 class="product-detail-title">${product.name}</h1>
-            <p class="product-detail-description">${product.description}</p>
+            <p class="product-detail-category">${escapeHtml(getCategoryLabel(product.category))}</p>
+            <h1 class="product-detail-title">${escapeHtml(product.name)}</h1>
+            <p class="product-detail-description">${escapeHtml(product.description)}</p>
             <p class="product-detail-price">$${formatPrice(product.price)}</p>
             <button type="button" class="btn" onclick="openProductWhatsApp(${product.id})">Saber mas</button>
         </div>
@@ -144,6 +144,20 @@ function openProductWhatsApp(productId) {
 
 document.addEventListener('DOMContentLoaded', function() {
     initializeStyles();
-    renderProductDetail();
-    bindMainImageMagnifier();
+    refreshProductDetail();
 });
+
+async function refreshProductDetail() {
+    const target = document.getElementById('productDetail');
+    target.textContent = 'Cargando producto…';
+    target.setAttribute('aria-busy', 'true');
+    try {
+        await loadProducts();
+        renderProductDetail();
+        bindMainImageMagnifier();
+    } catch {
+        renderCatalogError(target, refreshProductDetail);
+    } finally {
+        target.setAttribute('aria-busy', 'false');
+    }
+}

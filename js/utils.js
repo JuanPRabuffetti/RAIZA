@@ -72,6 +72,7 @@ function roundToTwo(value) {
 function getCategoryLabel(category) {
     const labels = {
         'libros': 'Libros',
+        'tarjetas': 'Tarjetas',
         'jabones': 'Jabones',
         'accesorios': 'Accesorios',
         'juegos': 'Juegos',
@@ -108,4 +109,22 @@ function filterProductsByCategory(category) {
         return products;
     }
     return products.filter(p => p.category === category);
+}
+
+function escapeHtml(value) {
+    return String(value).replace(/[&<>"']/g, character => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    })[character]);
+}
+
+function renderCatalogError(target, retry) {
+    target.replaceChildren();
+    const message = document.createElement('p');
+    message.textContent = 'No pudimos cargar los productos. Revisá tu conexión e intentá nuevamente.';
+    const button = document.createElement('button');
+    button.className = 'btn';
+    button.type = 'button';
+    button.textContent = 'Reintentar';
+    button.addEventListener('click', retry);
+    target.append(message, button);
 }

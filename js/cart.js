@@ -24,7 +24,7 @@ class ShoppingCart {
      */
     addItem(productId) {
         const product = findProductById(productId);
-        if (!product) return;
+        if (!product || !product.available) return;
 
         const existingItem = this.items.find(item => item.id === productId);
 
@@ -127,6 +127,14 @@ class ShoppingCart {
      */
     saveToStorage() {
         localStorage.setItem(this.getStorageKey(), JSON.stringify(this.items));
+    }
+
+    synchronizeCatalog() {
+        this.items = this.items.flatMap(item => {
+            const product = findProductById(item.id);
+            return product && product.available ? [{ ...product, quantity: item.quantity }] : [];
+        });
+        this.saveToStorage();
     }
 
     /**
