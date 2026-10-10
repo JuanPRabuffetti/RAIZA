@@ -3,7 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAIZA - Productos Artesanales</title>
+    <title>RAIZA Artesanal | Libros de embarazo y recuerdos para bebé en Uruguay</title>
+    <meta name="description" content="Libros de seguimiento del embarazo, libros de recuerdos, frascos de recuerdos para bebé, almohadillas y tarjetas personalizadas. Productos artesanales hechos en Ciudad de la Costa, Canelones, Uruguay.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://raizauy.netlify.app/">
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="RAIZA Artesanal">
+    <meta property="og:locale" content="es_UY">
+    <meta property="og:title" content="RAIZA Artesanal | Libros de embarazo y recuerdos para bebé">
+    <meta property="og:description" content="Libros de seguimiento del embarazo, libros de recuerdos, frascos de recuerdos para bebé, almohadillas y tarjetas personalizadas. Productos artesanales hechos en Ciudad de la Costa, Canelones, Uruguay.">
+    <meta property="og:url" content="https://raizauy.netlify.app/">
+    <meta property="og:image" content="https://raizauy.netlify.app/icons/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Logo de RAIZA Artesanal">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="RAIZA Artesanal | Libros de embarazo y recuerdos para bebé">
+    <meta name="twitter:description" content="Libros de seguimiento del embarazo, libros de recuerdos, frascos de recuerdos para bebé, almohadillas y tarjetas personalizadas. Productos artesanales hechos en Ciudad de la Costa, Canelones, Uruguay.">
+    <meta name="twitter:image" content="https://raizauy.netlify.app/icons/og-image.jpg">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Store",
+        "@id": "https://raizauy.netlify.app/#store",
+        "name": "RAIZA Artesanal",
+        "url": "https://raizauy.netlify.app/",
+        "logo": "https://raizauy.netlify.app/icons/icon-512.png",
+        "image": "https://raizauy.netlify.app/icons/og-image.jpg",
+        "description": "Libros de seguimiento del embarazo, libros de recuerdos, frascos de recuerdos para bebé, almohadillas y tarjetas personalizadas. Productos artesanales hechos en Ciudad de la Costa, Canelones, Uruguay.",
+        "telephone": "+598 98 216 823",
+        "priceRange": "$$",
+        "currenciesAccepted": "UYU",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Ciudad de la Costa",
+            "addressRegion": "Canelones",
+            "addressCountry": "UY"
+        },
+        "areaServed": { "@type": "Country", "name": "Uruguay" }
+    }
+    </script>
     <script src="/js/identity-redirect.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -12,7 +57,7 @@
     <header>
         <nav>
             <div class="logo">
-                <img src="pictures/fondodefinitivo2.png" alt="RAIZA" class="logo-image">
+                <a href="/" aria-label="RAIZA Artesanal, inicio"><img src="pictures/fondodefinitivo2.png" alt="RAIZA Artesanal" class="logo-image" width="500" height="500"></a>
             </div>
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
@@ -51,28 +96,28 @@
             </div>
             <div class="slide fade slide-2">
                 <div class="slide-content">
-                    <h1>Productos de alta calidad</h1>
+                    <h2 class="slide-title">Productos de alta calidad</h2>
                     <p>Cada artículo se elabora con atención al detalle para su tranquilidad.</p>
                     <button class="btn" onclick="scrollToSection('productos')">Explorar productos</button>
                 </div>
             </div>
             <div class="slide fade slide-3">
                 <div class="slide-content">
-                    <h1>Elaboración artesanal</h1>
+                    <h2 class="slide-title">Elaboración artesanal</h2>
                     <p>Productos confeccionados cuidadosamente para cada familia.</p>
                     <button class="btn" onclick="scrollToSection('productos')">Más información</button>
                 </div>
             </div>
             <div class="slide fade slide-4">
                 <div class="slide-content">
-                    <h1>Detalles personalizados</h1>
+                    <h2 class="slide-title">Detalles personalizados</h2>
                     <p>Regalos únicos y especiales para momentos inolvidables.</p>
                     <button class="btn" onclick="scrollToSection('productos')">Descubrir más</button>
                 </div>
             </div>
             <div class="slide fade slide-5">
                 <div class="slide-content">
-                    <h1>Recuerdos para toda la vida</h1>
+                    <h2 class="slide-title">Recuerdos para toda la vida</h2>
                     <p>Los momentos más importantes merecen ser recordados.</p>
                     <button class="btn" onclick="scrollToSection('productos')">Ver catálogo</button>
                 </div>
@@ -91,6 +136,7 @@
         </div>
     </section>
 
+    <main>
     <!-- Productos -->
     <section class="container products-section" id="productos">
         <h2 class="section-title">Catálogo de productos</h2>
@@ -118,6 +164,8 @@
             </form>
         </div>
     </section>
+
+    </main>
 
     <!-- Footer -->
     <footer>
