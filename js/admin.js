@@ -206,7 +206,7 @@ elements.loginForm.addEventListener('submit', async event => {
         elements.loginPassword.value = '';
         await enterPanel();
     } catch (error) {
-        message(elements.authMessage, error.status === 400 || error.status === 401 ? 'Revisá el correo y la contraseña, y asegurate de haber aceptado la invitación.' : error.status === 403 ? 'El acceso está restringido. Verificá tu invitación y el rol admin.' : error.message || 'No pudimos iniciar sesión.');
+        message(elements.authMessage, error.status === 400 || error.status === 401 ? 'Revisá el correo y la contraseña, y asegurate de haber aceptado la invitación.' : error.status === 403 ? 'El acceso está restringido. Verificá que tu cuenta esté confirmada desde el correo de invitación.' : error.message || 'No pudimos iniciar sesión.');
     } finally {
         submit.disabled = false;
         submit.textContent = 'Entrar al panel →';
@@ -246,7 +246,7 @@ elements.passwordForm.addEventListener('submit', async event => {
         elements.recoverButton.hidden = false;
         elements.authTitle.textContent = 'Bienvenida al taller';
         elements.authDescription.textContent = 'Ingresá con tu cuenta administradora de Netlify Identity.';
-        message(elements.authMessage, 'Contraseña guardada. Recordá asignar el rol admin en Netlify para habilitar el panel.', 'success');
+        message(elements.authMessage, 'Contraseña guardada. Ya podés ingresar al panel.', 'success');
         await enterPanel();
     } catch (error) {
         message(elements.authMessage, error.message || 'No pudimos guardar la contraseña. Solicitá un enlace nuevo si el anterior venció.');
