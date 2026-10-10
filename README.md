@@ -5,12 +5,12 @@ La tienda mantiene su diseño original y usa un catálogo compartido en Netlify 
 ## Primer acceso al panel
 
 1. Después del despliegue, abrí el proyecto RAIZA en Netlify y entrá a **Identity**. La integración de Identity quedó incluida en el proyecto.
-2. Invitá a `jrbau3004@gmail.com` con **Invite users**. Si esa cuenta ya existe en Identity, no hace falta invitarla de nuevo.
-3. Abrí el correo de invitación y creá una contraseña. Los enlaces que llegan a la portada se redirigen al panel para completar este paso.
-4. En la lista de usuarios de Identity, abrí esa cuenta, agregá el rol **admin** y guardá. La primera asignación de administrador se realiza desde Netlify, no desde la tienda.
+2. Invitá a `jrabu3004@gmail.com` y `florabuffetti@gmail.com` con **Invite users**. Si alguna de esas cuentas ya existe en Identity, no hace falta invitarla de nuevo.
+3. Abrí el correo de invitación y creá una contraseña (cada administrador recibe el suyo). Los enlaces que llegan a la portada se redirigen al panel para completar este paso.
+4. En la lista de usuarios de Identity, abrí cada cuenta, agregá el rol **admin** y guardá. La primera asignación de administrador se realiza desde Netlify, no desde la tienda.
 5. Entrá a `/admin` e iniciá sesión. También hay un enlace **Administrar productos** al pie de la tienda.
 
-El panel acepta únicamente ese correo confirmado con el rol `admin`, verificado en el servidor. Las cuentas de clientes que ya existen en la tienda no son cuentas de Identity y no permiten administrar productos. No uses el registro de clientes para crear la cuenta administradora. Para autorizar otras cuentas en el futuro, se debe actualizar la política de acceso en `server/auth.ts` y asignar sus roles desde Netlify.
+El panel acepta únicamente esos correos confirmados con el rol `admin`, verificado en el servidor. Las cuentas de clientes que ya existen en la tienda no son cuentas de Identity y no permiten administrar productos. No uses el registro de clientes para crear la cuenta administradora. Para autorizar otras cuentas en el futuro, se debe actualizar la política de acceso en `server/auth.ts` y asignar sus roles desde Netlify.
 
 ## Administrar productos
 
