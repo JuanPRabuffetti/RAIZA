@@ -24,8 +24,8 @@ export default async (request: Request, context: Context) => {
         requireSameOrigin(request);
         const form = await request.formData();
         const file = form.get('file');
-        if (!(file instanceof File) || !file.size || file.size > 4 * 1024 * 1024) {
-            throw new HttpError(400, 'Seleccioná una foto de hasta 4 MB.');
+        if (!(file instanceof File) || !file.size || file.size > 5 * 1024 * 1024) {
+            throw new HttpError(400, 'Seleccioná una foto de hasta 5 MB.');
         }
         const buffer = Buffer.from(await file.arrayBuffer());
         const isJpeg = buffer[0] === 0xff && buffer[1] === 0xd8 && buffer[2] === 0xff;

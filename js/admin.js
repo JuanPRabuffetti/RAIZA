@@ -278,6 +278,47 @@ elements.productDialog.addEventListener('cancel', event => {
     if (uploading || saving) event.preventDefault();
 });
 
+const MAX_UPLOAD_BYTES = 4 * 1024 * 1024;
+const MAX_IMAGE_SIDE = 2000;
+
+function loadImage(file) {
+    return new Promise((resolve, reject) => {
+        const url = URL.createObjectURL(file);
+        const image = new Image();
+        image.onload = () => { URL.revokeObjectURL(url); resolve(image); };
+        image.onerror = () => { URL.revokeObjectURL(url); reject(new Error('decode')); };
+        image.src = url;
+    });
+}
+
+// Phone photos are often huge or HEIC, so shrink them to a JPEG in the browser before uploading.
+async function prepareImage(file) {
+    const supported = ['image/jpeg', 'image/png', 'image/webp'].includes(file.type);
+    let image;
+    try {
+        image = await loadImage(file);
+    } catch {
+        if (supported && file.size <= MAX_UPLOAD_BYTES) return file;
+        throw new Error('No pudimos leer esta foto. Probá sacarla de nuevo o elegir otra.');
+    }
+    if (supported && file.size <= 1.5 * 1024 * 1024 && Math.max(image.naturalWidth, image.naturalHeight) <= MAX_IMAGE_SIDE) return file;
+    let side = MAX_IMAGE_SIDE;
+    for (const quality of [0.85, 0.75, 0.65, 0.55]) {
+        const scale = Math.min(1, side / Math.max(image.naturalWidth, image.naturalHeight));
+        const canvas = document.createElement('canvas');
+        canvas.width = Math.max(1, Math.round(image.naturalWidth * scale));
+        canvas.height = Math.max(1, Math.round(image.naturalHeight * scale));
+        const context = canvas.getContext('2d');
+        context.fillStyle = '#fff';
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        context.drawImage(image, 0, 0, canvas.width, canvas.height);
+        const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/jpeg', quality));
+        if (blob && blob.size <= MAX_UPLOAD_BYTES) return new File([blob], 'foto.jpg', { type: 'image/jpeg' });
+        side = Math.round(side * 0.8);
+    }
+    throw new Error('Esta foto es demasiado pesada. Probá con otra.');
+}
+
 elements.imageFiles.addEventListener('change', async () => {
     const files = [...elements.imageFiles.files];
     if (!files.length) return;
@@ -286,8 +327,8 @@ elements.imageFiles.addEventListener('change', async () => {
         elements.imageFiles.value = '';
         return;
     }
-    if (files.some(file => !['image/jpeg', 'image/png', 'image/webp'].includes(file.type) || !file.size || file.size > 4 * 1024 * 1024)) {
-        message(elements.uploadMessage, 'Usá fotos JPG, PNG o WebP de hasta 4 MB cada una.');
+    if (files.some(file => !file.size || (file.type && !file.type.startsWith('image/')))) {
+        message(elements.uploadMessage, 'Elegí solamente archivos de imagen.');
         elements.imageFiles.value = '';
         return;
     }
@@ -296,9 +337,11 @@ elements.imageFiles.addEventListener('change', async () => {
     let completed = 0;
     try {
         for (const file of files) {
+            message(elements.uploadMessage, `Preparando foto ${completed + 1} de ${files.length}…`, 'success');
+            const prepared = await prepareImage(file);
             message(elements.uploadMessage, `Subiendo foto ${completed + 1} de ${files.length}…`, 'success');
             const form = new FormData();
-            form.append('file', file);
+            form.append('file', prepared, prepared.name);
             const result = await api('/api/product-images', { method: 'POST', body: form });
             if (!authenticated) return;
             gallery.push(result.url);
