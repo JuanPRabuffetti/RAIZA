@@ -35,7 +35,7 @@ function renderProducts(productsToShow) {
             ${imageMarkup}
             <div class="product-info">
                 <div class="product-category">${escapeHtml(getCategoryLabel(product.category))}</div>
-                <div class="product-name">${escapeHtml(product.name)}</div>
+                <h3 class="product-name"><a href="/product?id=${product.id}">${escapeHtml(product.name)}</a></h3>
                 <div class="product-description">${escapeHtml(product.description)}</div>
                 <div class="price">$${formatPrice(product.price)}</div>
                 <button class="add-to-cart-btn" onclick="openProductDetail(${product.id}, event)">Ver mas</button>
@@ -51,7 +51,7 @@ function openProductDetail(productId, event) {
         event.stopPropagation();
     }
 
-    window.location.href = `product.html?id=${productId}`;
+    window.location.href = `/product?id=${productId}`;
 }
 
 /**

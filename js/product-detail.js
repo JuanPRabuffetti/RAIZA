@@ -26,6 +26,7 @@ function renderProductDetail() {
     }
 
     if (!product) {
+        setMetaContent('meta[name="robots"]', 'noindex, follow', 'name', 'robots');
         target.innerHTML = `
             <div class="product-detail-empty">
                 <h1>Producto no encontrado</h1>
@@ -36,6 +37,7 @@ function renderProductDetail() {
     }
 
     const images = getProductImages(product);
+    updateProductSeo(product, images);
 
     target.innerHTML = `
         <div class="product-gallery-panel">
@@ -61,6 +63,59 @@ function renderProductDetail() {
     `;
 
     bindGalleryHover();
+}
+
+function setMetaContent(selector, content, attribute, key) {
+    let tag = document.head.querySelector(selector);
+    if (!tag) {
+        tag = document.createElement('meta');
+        tag.setAttribute(attribute, key);
+        document.head.appendChild(tag);
+    }
+    tag.setAttribute('content', content);
+}
+
+function toAbsoluteUrl(path) {
+    return new URL(path, window.location.origin).href;
+}
+
+function updateProductSeo(product, images) {
+    const title = `${product.name} | RAIZA Artesanal`;
+    const description = product.description.replace(/\s+/g, ' ').trim().slice(0, 160);
+    const url = `${window.location.origin}/product?id=${product.id}`;
+    const image = toAbsoluteUrl(images[0]);
+
+    document.title = title;
+    setMetaContent('meta[name="description"]', description, 'name', 'description');
+    setMetaContent('meta[property="og:title"]', title, 'property', 'og:title');
+    setMetaContent('meta[property="og:description"]', description, 'property', 'og:description');
+    setMetaContent('meta[property="og:url"]', url, 'property', 'og:url');
+    setMetaContent('meta[property="og:image"]', image, 'property', 'og:image');
+
+    const canonical = document.head.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.href = url;
+
+    const structuredData = document.createElement('script');
+    structuredData.type = 'application/ld+json';
+    structuredData.textContent = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Product',
+        name: product.name,
+        description: product.description,
+        image: images.map(toAbsoluteUrl),
+        category: getCategoryLabel(product.category),
+        brand: { '@type': 'Brand', name: 'RAIZA' },
+        url,
+        offers: {
+            '@type': 'Offer',
+            price: formatPrice(product.price),
+            priceCurrency: 'UYU',
+            availability: 'https://schema.org/InStock',
+            url,
+            seller: { '@type': 'Organization', name: 'RAIZA Artesanal' }
+        }
+    });
+    document.head.appendChild(structuredData);
 }
 
 function bindGalleryHover() {
